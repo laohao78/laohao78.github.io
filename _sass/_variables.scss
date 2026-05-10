@@ -1,27 +1,45 @@
 
 //
-// VARIABLES
+// VARIABLES — 硅基文明发展史 · 星空史书
 //
 
-// Colors
-$blue: #4183C4;
-
-// Grays
-$black: #000;
-$darkerGray: #222;
-$darkGray: #333;
-$gray: #666;
-$lightGray: #eee;
-$white: #fff;
+// Colors — Dark cosmic palette
+$bg-primary: #0a0a0f;
+$bg-secondary: #111118;
+$bg-card: #14141f;
+$text-primary: #d4c8a8;
+$text-secondary: #a09880;
+$text-muted: #6a6458;
+$accent: #00e5ff;
+$accent-glow: rgba(0, 229, 255, 0.15);
+$accent-dim: #008899;
+$gold: #c9a84c;
+$gold-dim: #8a7030;
+$red-accent: #ff4466;
+$green-terminal: #00ff88;
+$border-subtle: rgba(255, 255, 255, 0.06);
+$border-glow: rgba(0, 229, 255, 0.2);
 
 // Font stacks
-$helvetica: Helvetica, Arial, sans-serif;
-$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$georgia: Georgia, serif;
+$font-heading: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", Georgia, serif;
+$font-body: "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", "PingFang SC", -apple-system, sans-serif;
+$font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", "Courier New", monospace;
 
-// Mobile breakpoints
+// Breakpoints
 @mixin mobile {
   @media screen and (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 960px) {
+    @content;
+  }
+}
+
+@mixin wide {
+  @media screen and (min-width: 1200px) {
     @content;
   }
 }
