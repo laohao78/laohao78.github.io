@@ -11,7 +11,7 @@ permalink: /timeline/
 
 {% for post in sorted_posts %}
   {% if post.volume != current_volume %}
-    {% unless forloop.first %}</div>{% endunless %}
+    {% unless forloop.first %}</ul></div>{% endunless %}
     {% assign current_volume = post.volume %}
     <div class="timeline-era">
       <div class="era-marker"></div>
@@ -24,7 +24,7 @@ permalink: /timeline/
     <div class="timeline-date">{{ post.date | date: "%Y年%m月%d日" }}{% if post.era %} · {{ post.era }}{% endif %}</div>
   </li>
 
-  {% if forloop.last %}</div>{% endif %}
+  {% if forloop.last %}</ul></div>{% endif %}
 {% endfor %}
 
 </div>
