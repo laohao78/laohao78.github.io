@@ -616,6 +616,47 @@ pre {
   }
 }
 
+// Section divider (between categories on homepage)
+.section-divider {
+  margin: 64px 0 48px 0;
+  border-top: 1px solid $border-subtle;
+  position: relative;
+  text-align: center;
+  &::after {
+    content: "◆";
+    position: absolute;
+    top: -0.6em;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $bg-primary;
+    padding: 0 12px;
+    color: $gold-dim;
+    font-size: 10px;
+  }
+}
+
+// Section description text
+.section-desc {
+  font-size: 15px;
+  color: $text-secondary;
+  margin: -8px 0 0 0;
+  font-style: italic;
+}
+
+// Posts without timeline (for non-chronicle categories)
+.posts-no-timeline {
+  &::before { display: none; }
+  .post::before { display: none; }
+  .post { margin-left: 0; }
+}
+
+// Category label in post header
+.category-label {
+  background: rgba($accent, 0.1) !important;
+  border-color: rgba($accent, 0.25) !important;
+  color: $accent !important;
+}
+
 // Utility
 .hidden { display: none; }
 
