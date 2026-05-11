@@ -452,7 +452,7 @@ code {
 }
 
 pre {
-  background: darken(var(--bg-secondary), 2%);
+  background: var(--bg-primary);
   padding: 16px 20px;
   border: 1px solid var(--border-subtle);
   border-radius: 6px;
@@ -469,7 +469,7 @@ pre {
 }
 
 .highlight {
-  background: darken(var(--bg-secondary), 2%);
+  background: var(--bg-primary);
   padding: 16px 20px;
   border: 1px solid var(--border-subtle);
   border-radius: 6px;
