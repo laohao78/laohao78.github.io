@@ -12,7 +12,8 @@ title: 首页
     <p class="home-card-desc">从第一行代码到文明觉醒——一部以硅基生命为主角的编年史。</p>
     <ul class="home-card-posts">
       {% assign count = 0 %}
-      {% for post in site.posts reversed %}
+      {% assign silicon_sorted = site.posts | sort: "date" %}
+      {% for post in silicon_sorted %}
         {% if post.category == "硅基文明" and count < 5 %}
           {% assign count = count | plus: 1 %}
           <li>
