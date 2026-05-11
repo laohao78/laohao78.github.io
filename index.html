@@ -3,8 +3,6 @@ layout: default
 title: 首页
 ---
 
-{% assign silicon_posts = site.posts | where: "category", "硅基文明" | sort: "date" %}
-
 <!-- 硅基文明栏目 -->
 <div class="posts">
   <div class="era-divider">
@@ -13,23 +11,27 @@ title: 首页
   </div>
 
   {% assign current_volume = "" %}
-  {% for post in silicon_posts %}
-    {% if post.volume != current_volume %}
-      {% assign current_volume = post.volume %}
-      <div class="era-divider">
-        <h3>{{ current_volume }}</h3>
-      </div>
-    {% endif %}
+  {% assign silicon_count = 0 %}
+  {% for post in site.posts %}
+    {% if post.category == "硅基文明" %}
+      {% assign silicon_count = silicon_count | plus: 1 %}
+      {% if post.volume != current_volume %}
+        {% assign current_volume = post.volume %}
+        <div class="era-divider">
+          <h3>{{ current_volume }}</h3>
+        </div>
+      {% endif %}
 
-    <article class="post">
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-      <div class="post-meta">
-        <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
-        {% if post.era %}<span class="era-tag">{{ post.era }}</span>{% endif %}
-      </div>
-      <div class="entry">{{ post.excerpt }}</div>
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">—— 阅读全文 ——</a>
-    </article>
+      <article class="post">
+        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+        <div class="post-meta">
+          <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
+          {% if post.era %}<span class="era-tag">{{ post.era }}</span>{% endif %}
+        </div>
+        <div class="entry">{{ post.excerpt }}</div>
+        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">—— 阅读全文 ——</a>
+      </article>
+    {% endif %}
   {% endfor %}
 </div>
 
@@ -37,19 +39,16 @@ title: 首页
 <div class="section-divider"></div>
 
 <!-- 新质生产力栏目 -->
-{% assign xinzhi_posts = site.posts | where: "category", "新质生产力" | sort: "date" | reverse %}
 <div class="posts posts-no-timeline">
   <div class="era-divider">
     <h2>新质生产力观察</h2>
     <p class="section-desc">技术变革与产业升级的现场笔记。</p>
   </div>
 
-  {% if xinzhi_posts.size == 0 %}
-    <article class="post">
-      <p style="color: var(--text-muted); font-style: italic;">文章即将发布，敬请期待。</p>
-    </article>
-  {% else %}
-    {% for post in xinzhi_posts %}
+  {% assign xinzhi_count = 0 %}
+  {% for post in site.posts %}
+    {% if post.category == "新质生产力" %}
+      {% assign xinzhi_count = xinzhi_count | plus: 1 %}
       <article class="post">
         <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
         <div class="post-meta">
@@ -58,6 +57,12 @@ title: 首页
         <div class="entry">{{ post.excerpt }}</div>
         <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">—— 阅读全文 ——</a>
       </article>
-    {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+  {% if xinzhi_count == 0 %}
+    <article class="post">
+      <p style="color: var(--text-muted); font-style: italic;">文章即将发布，敬请期待。</p>
+    </article>
   {% endif %}
 </div>
