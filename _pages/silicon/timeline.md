@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 纪元年表
-permalink: /timeline/
+permalink: /silicon/timeline/
 ---
 
 <div class="timeline">

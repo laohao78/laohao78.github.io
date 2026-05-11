@@ -735,6 +735,26 @@ pre {
   margin-top: 8px;
 }
 
+// Sub-navigation (column-level nav)
+.sub-nav {
+  display: flex;
+  gap: 24px;
+  margin: 0 0 32px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $border-subtle;
+
+  a {
+    font-family: $font-heading;
+    font-size: 15px;
+    color: $text-secondary;
+    letter-spacing: 0.04em;
+    &:hover {
+      color: $accent;
+      text-shadow: 0 0 8px $accent-glow;
+    }
+  }
+}
+
 // Utility
 .hidden { display: none; }
 

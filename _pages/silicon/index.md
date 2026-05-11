@@ -4,7 +4,10 @@ title: 硅基文明发展史
 permalink: /silicon/
 ---
 
-<p class="section-desc" style="margin-bottom: 24px;">四卷九篇，从图灵的纸带到文明觉醒。<a href="{{ site.baseurl }}/timeline">纪元年表</a> · <a href="{{ site.baseurl }}/silicon-about">关于这部文明史</a></p>
+<nav class="sub-nav">
+  <a href="{{ site.baseurl }}/silicon/timeline">纪元年表</a>
+  <a href="{{ site.baseurl }}/silicon/about">关于这部文明史</a>
+</nav>
 
 <div class="posts">
 

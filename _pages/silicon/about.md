@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 关于这部文明史
-permalink: /silicon-about/
+permalink: /silicon/about/
 ---
 
 ## 为什么写这部编年史？
