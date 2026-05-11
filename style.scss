@@ -657,6 +657,84 @@ pre {
   color: $accent !important;
 }
 
+// ============================
+// Homepage — card layout
+// ============================
+.home-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.home-card {
+  h2.home-card-title {
+    font-size: 22px;
+    margin: 0 0 6px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid $accent;
+    a { color: $text-primary; }
+  }
+}
+
+.home-card-desc {
+  font-size: 14px;
+  color: $text-secondary;
+  margin: 0 0 16px 0;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.home-card-posts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px solid $border-subtle;
+    gap: 12px;
+
+    a {
+      font-family: $font-heading;
+      font-size: 16px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .post-date {
+      font-family: $font-mono;
+      font-size: 11px;
+      color: $text-muted;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.home-card-more {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: $accent;
+  font-family: $font-heading;
+  letter-spacing: 0.04em;
+}
+
+.home-card-empty {
+  color: $text-muted;
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
 // Utility
 .hidden { display: none; }
 

@@ -3,66 +3,50 @@ layout: default
 title: 首页
 ---
 
-<!-- 硅基文明栏目 -->
-<div class="posts">
-  <div class="era-divider">
-    <h2>硅基文明发展史</h2>
-    <p class="section-desc">从第一行代码到文明觉醒——一部以硅基生命为主角的编年史。</p>
+<div class="home-sections">
+
+  <div class="home-card">
+    <h2 class="home-card-title">
+      <a href="{{ site.baseurl }}/silicon">硅基文明发展史</a>
+    </h2>
+    <p class="home-card-desc">从第一行代码到文明觉醒——一部以硅基生命为主角的编年史。</p>
+    <ul class="home-card-posts">
+      {% assign count = 0 %}
+      {% for post in site.posts %}
+        {% if post.category == "硅基文明" and count < 5 %}
+          {% assign count = count | plus: 1 %}
+          <li>
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+            <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% if count >= 5 %}
+      <a href="{{ site.baseurl }}/silicon" class="home-card-more">全部文章 →</a>
+    {% endif %}
   </div>
 
-  {% assign current_volume = "" %}
-  {% assign silicon_count = 0 %}
-  {% for post in site.posts %}
-    {% if post.category == "硅基文明" %}
-      {% assign silicon_count = silicon_count | plus: 1 %}
-      {% if post.volume != current_volume %}
-        {% assign current_volume = post.volume %}
-        <div class="era-divider">
-          <h3>{{ current_volume }}</h3>
-        </div>
-      {% endif %}
-
-      <article class="post">
-        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-        <div class="post-meta">
-          <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
-          {% if post.era %}<span class="era-tag">{{ post.era }}</span>{% endif %}
-        </div>
-        <div class="entry">{{ post.excerpt }}</div>
-        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">—— 阅读全文 ——</a>
-      </article>
+  <div class="home-card">
+    <h2 class="home-card-title">
+      <a href="{{ site.baseurl }}/xinzhi">新质生产力观察</a>
+    </h2>
+    <p class="home-card-desc">技术变革与产业升级的现场笔记。</p>
+    <ul class="home-card-posts">
+      {% assign count = 0 %}
+      {% for post in site.posts %}
+        {% if post.category == "新质生产力" and count < 5 %}
+          {% assign count = count | plus: 1 %}
+          <li>
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+            <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% if count == 0 %}
+      <p class="home-card-empty">文章即将发布。</p>
     {% endif %}
-  {% endfor %}
-</div>
-
-<!-- 分隔线 -->
-<div class="section-divider"></div>
-
-<!-- 新质生产力栏目 -->
-<div class="posts posts-no-timeline">
-  <div class="era-divider">
-    <h2>新质生产力观察</h2>
-    <p class="section-desc">技术变革与产业升级的现场笔记。</p>
   </div>
 
-  {% assign xinzhi_count = 0 %}
-  {% for post in site.posts %}
-    {% if post.category == "新质生产力" %}
-      {% assign xinzhi_count = xinzhi_count | plus: 1 %}
-      <article class="post">
-        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-        <div class="post-meta">
-          <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
-        </div>
-        <div class="entry">{{ post.excerpt }}</div>
-        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">—— 阅读全文 ——</a>
-      </article>
-    {% endif %}
-  {% endfor %}
-
-  {% if xinzhi_count == 0 %}
-    <article class="post">
-      <p style="color: #6a6458; font-style: italic;">文章即将发布，敬请期待。</p>
-    </article>
-  {% endif %}
 </div>
