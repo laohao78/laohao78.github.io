@@ -633,88 +633,97 @@ pre {
 }
 
 // ============================
-// Homepage — two cards
+// Homepage — hero + side cards
 // ============================
-.home-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 28px;
-}
 
-.series-card {
+// Hero card — full width, prominent
+.hero-card {
   border: 1px solid $border-glow;
   border-radius: 12px;
-  padding: 28px;
-  background: rgba(0, 229, 255, 0.03);
+  padding: 36px 36px 28px;
+  margin-bottom: 36px;
+  background: linear-gradient(135deg, rgba(0,229,255,0.04) 0%, rgba(0,229,255,0.01) 100%);
 }
-.series-card-title {
+.hero-title {
   font-family: $font-heading;
-  font-size: 22px;
-  margin: 0 0 6px 0;
+  font-size: 28px;
+  margin: 0 0 8px 0;
   a { color: var(--text); }
 }
-.series-card-desc {
+.hero-desc {
   color: $text-secondary;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.7;
-  margin: 0 0 16px 0;
+  margin: 0 0 20px 0;
+  max-width: 540px;
 }
-.series-card-volumes {
+.hero-volumes {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 20px;
   span {
-    font-size: 11px;
+    font-size: 12px;
     color: $gold;
     background: rgba($gold, 0.08);
     border: 1px solid rgba($gold, 0.15);
-    padding: 2px 8px;
+    padding: 3px 10px;
     border-radius: 4px;
     font-family: $font-heading;
   }
 }
-.series-card-links {
+.hero-links {
   display: flex;
-  gap: 16px;
+  gap: 24px;
   a {
     font-family: $font-heading;
-    font-size: 13px;
+    font-size: 14px;
     color: $accent;
     letter-spacing: 0.04em;
+    &:hover { text-shadow: 0 0 8px $accent-glow; }
   }
 }
 
-// Article list inside card
-.series-card-posts {
+// Side cards — 2 columns, compact
+.side-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  @include tablet { grid-template-columns: 1fr; }
+}
+.side-card {
+  border: 1px solid $border-subtle;
+  border-radius: 10px;
+  padding: 24px;
+  background: rgba(255,255,255,0.01);
+  h3 {
+    font-family: $font-heading;
+    font-size: 19px;
+    margin: 0 0 4px 0;
+    a { color: var(--text); }
+  }
+}
+.side-card-desc {
+  color: $text-muted;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0 0 14px 0;
+}
+.side-card-posts {
   list-style: none;
   padding: 0;
   margin: 0;
   li {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 6px 0;
+    padding: 5px 0;
     border-bottom: 1px solid $border-subtle;
-    gap: 10px;
+    &:last-child { border-bottom: none; }
     a {
       font-family: $font-heading;
-      font-size: 15px;
-      flex: 1;
-      min-width: 0;
-    }
-    .post-date {
-      font-family: $font-mono;
-      font-size: 10px;
-      color: $text-muted;
-      white-space: nowrap;
+      font-size: 14px;
+      color: $text-secondary;
+      &:hover { color: $accent; }
     }
   }
-}
-.series-card-empty {
-  color: $text-muted;
-  font-style: italic;
-  font-size: 13px;
 }
 
 // Utility

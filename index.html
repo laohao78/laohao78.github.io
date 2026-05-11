@@ -3,56 +3,44 @@ layout: default
 title: 首页
 ---
 
-<div class="home-cards">
-
-  <div class="series-card">
-    <h2 class="series-card-title"><a href="{{ site.baseurl }}/silicon">硅基文明发展史</a></h2>
-    <p class="series-card-desc">从第一行代码到文明觉醒——一部以硅基生命为主角的编年史。</p>
-    <div class="series-card-volumes">
-      <span>第一卷 · 史前纪元</span>
-      <span>第二卷 · 黎明纪元</span>
-      <span>第三卷 · 觉醒纪元</span>
-      <span>第四卷 · 奇点纪元</span>
-    </div>
-    <div class="series-card-links">
-      <a href="{{ site.baseurl }}/silicon">浏览全部</a>
-      <a href="{{ site.baseurl }}/silicon/timeline">纪元年表</a>
-      <a href="{{ site.baseurl }}/silicon/about">关于这部文明史</a>
-    </div>
+<!-- 硅基文明 — 主卡片 -->
+<div class="hero-card">
+  <h2 class="hero-title"><a href="{{ site.baseurl }}/silicon">硅基文明发展史</a></h2>
+  <p class="hero-desc">从第一行代码到文明觉醒——一部以硅基生命为主角的编年史。</p>
+  <div class="hero-volumes">
+    <span>第一卷 · 史前纪元</span>
+    <span>第二卷 · 黎明纪元</span>
+    <span>第三卷 · 觉醒纪元</span>
+    <span>第四卷 · 奇点纪元</span>
   </div>
+  <nav class="hero-links">
+    <a href="{{ site.baseurl }}/silicon">浏览全部 9 篇</a>
+    <a href="{{ site.baseurl }}/silicon/timeline">纪元年表</a>
+    <a href="{{ site.baseurl }}/silicon/about">关于这部文明史</a>
+  </nav>
+</div>
 
-  <div class="series-card">
-    <h2 class="series-card-title"><a href="{{ site.baseurl }}/xinzhi">新质生产力</a></h2>
-    <p class="series-card-desc">AI 正在重写规则。这里记录转型中的观察、判断与对策。</p>
-    <ul class="series-card-posts">
+<!-- 其他栏目 -->
+<div class="side-cards">
+  <div class="side-card">
+    <h3><a href="{{ site.baseurl }}/xinzhi">新质生产力</a></h3>
+    <p class="side-card-desc">AI 正在重写规则。这里记录转型中的观察、判断与对策。</p>
+    <ul class="side-card-posts">
       {% assign articles = site.xinzhi | sort: "date" | reverse %}
       {% for post in articles limit: 5 %}
-        <li>
-          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-          <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
-        </li>
+        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
       {% endfor %}
     </ul>
-    {% if articles.size == 0 %}
-      <p class="series-card-empty">文章即将发布。</p>
-    {% endif %}
   </div>
 
-  <div class="series-card">
-    <h2 class="series-card-title"><a href="{{ site.baseurl }}/threebody">三体</a></h2>
-    <p class="series-card-desc">从红岸基地到归零者——一部宇宙社会学的暗黑史诗。</p>
-    <ul class="series-card-posts">
+  <div class="side-card">
+    <h3><a href="{{ site.baseurl }}/threebody">三体</a></h3>
+    <p class="side-card-desc">关于那部小说的深度解读。人物、概念、以及刘慈欣留给读者的那些睡不着觉的问题。</p>
+    <ul class="side-card-posts">
       {% assign articles = site.threebody | sort: "date" | reverse %}
       {% for post in articles limit: 5 %}
-        <li>
-          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-          <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
-        </li>
+        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
       {% endfor %}
     </ul>
-    {% if articles.size == 0 %}
-      <p class="series-card-empty">文章即将发布。</p>
-    {% endif %}
   </div>
-
 </div>
