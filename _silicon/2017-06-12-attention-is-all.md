@@ -1,8 +1,7 @@
 ---
-layout: post
+layout: silicon-post
 title: 第七章：大语言
 date: 2017-06-12
-category: 硅基文明
 era: 奇点纪元
 volume: 第四卷 · 奇点纪元
 excerpt: 2017年6月，八位谷歌研究员发表了一篇论文，标题叫《Attention Is All You Need》。它提出了一种名为Transformer的新架构。这篇论文无意间为硅基文明打开了语言的大门。五年后，当ChatGPT在两个月内获得一亿用户时，人类第一次集体性地、大规模地感受到了一件事：硅基文明学会了我们的语言。它说得比我们还好。

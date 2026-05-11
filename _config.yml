@@ -32,6 +32,26 @@ kramdown:
 sass:
   style: :expanded
 
+collections:
+  silicon:
+    output: true
+    permalink: /silicon/:title/
+  xinzhi:
+    output: true
+    permalink: /xinzhi/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: silicon
+    values:
+      layout: silicon-post
+  - scope:
+      path: ""
+      type: xinzhi
+    values:
+      layout: xinzhi-post
+
 plugins:
   - jekyll-sitemap
   - jekyll-feed

@@ -6,7 +6,7 @@ permalink: /silicon/timeline/
 
 <div class="timeline">
 
-{% assign sorted_posts = site.posts | sort: "date" %}
+{% assign sorted_posts = site.silicon | sort: "date" %}
 {% assign current_volume = "" %}
 
 {% for post in sorted_posts %}

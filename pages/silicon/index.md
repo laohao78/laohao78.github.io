@@ -11,10 +11,9 @@ permalink: /silicon/
 
 <div class="posts">
 
-{% assign silicon_all = site.posts | sort: "date" %}
+{% assign silicon_all = site.silicon | sort: "date" %}
 {% assign current_volume = "" %}
 {% for post in silicon_all %}
-  {% if post.category == "硅基文明" %}
     {% if post.volume != current_volume %}
       {% assign current_volume = post.volume %}
       <div class="era-divider">
@@ -31,7 +30,6 @@ permalink: /silicon/
       <div class="entry">{{ post.excerpt }}</div>
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">—— 阅读全文 ——</a>
     </article>
-  {% endif %}
 {% endfor %}
 
 </div>
