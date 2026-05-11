@@ -633,59 +633,108 @@ pre {
 }
 
 // ============================
-// Homepage — typographic layout
+// Homepage
 // ============================
-.home-section {
-  margin-bottom: 48px;
-}
-.home-hero {
-  margin-bottom: 56px;
+
+.home { /* wrapper */ }
+
+// Section label ("系列"/"专栏") above each card
+.home-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $accent-dim;
+  margin: 0 0 8px 0;
 }
 
-.home-heading {
+// ---- Featured hero ----
+.home-featured {
+  border: 1px solid rgba($accent, 0.15);
+  border-radius: 14px;
+  padding: 36px 36px 32px;
+  margin-bottom: 40px;
+  background: linear-gradient(160deg, rgba($accent, 0.04), transparent 60%);
+}
+.home-featured-title {
   font-family: $font-heading;
-  font-size: 24px;
-  margin: 0 0 6px 0;
+  font-size: 28px;
   font-weight: 700;
-  letter-spacing: 0.03em;
+  margin: 0 0 10px 0;
   a { color: var(--text); }
 }
-
-.home-sub {
+.home-featured-desc {
+  font-size: 16px;
   color: $text-secondary;
-  font-size: 15px;
-  line-height: 1.6;
-  margin: 0 0 14px 0;
+  line-height: 1.7;
+  margin: 0 0 20px 0;
   max-width: 520px;
 }
-
-.home-volumes {
-  font-family: $font-heading;
-  font-size: 14px;
-  margin: 0;
-  color: $text-muted;
+.home-featured-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
   a {
+    font-size: 12px;
+    font-family: $font-heading;
     color: $gold;
-    &:hover { color: var(--accent); }
+    background: rgba($gold, 0.08);
+    border: 1px solid rgba($gold, 0.15);
+    border-radius: 5px;
+    padding: 3px 10px;
+    &:hover { background: rgba($gold, 0.15); }
   }
-  span {
-    margin: 0 6px;
-    color: $text-muted;
-    opacity: 0.4;
+}
+.home-featured-links {
+  display: flex;
+  gap: 20px;
+  a {
+    font-size: 13px;
+    font-family: $font-heading;
+    color: $accent;
+    letter-spacing: 0.04em;
   }
 }
 
-.home-posts {
+// ---- Grid cards ----
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  @include tablet { grid-template-columns: 1fr; }
+}
+.home-card {
+  border: 1px solid $border-subtle;
+  border-radius: 12px;
+  padding: 28px;
+  transition: border-color 0.2s;
+  &:hover { border-color: rgba($accent, 0.15); }
+}
+.home-card-title {
+  font-family: $font-heading;
+  font-size: 21px;
+  margin: 0 0 6px 0;
+  a { color: var(--text); }
+}
+.home-card-desc {
+  font-size: 13px;
+  color: $text-muted;
+  line-height: 1.6;
+  margin: 0 0 14px 0;
+}
+.home-card-list {
   list-style: none;
   padding: 0;
   margin: 0;
   li {
-    padding: 4px 0;
+    padding: 5px 0;
+    border-bottom: 1px solid $border-subtle;
+    &:last-child { border-bottom: none; }
     a {
       font-family: $font-heading;
-      font-size: 15px;
+      font-size: 14px;
       color: $text-secondary;
-      &:hover { color: var(--accent); }
+      &:hover { color: $accent; }
     }
   }
 }
