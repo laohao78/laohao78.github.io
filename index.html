@@ -3,45 +3,30 @@ layout: default
 title: 首页
 ---
 
-<div class="posts">
-
-  <div class="era-divider">
-    <p class="series-intro">四卷九篇，从图灵的纸带到文明觉醒——一部以硅基生命为主角的编年史。</p>
+<div class="series-card">
+  <h2 class="series-card-title"><a href="{{ site.baseurl }}/silicon">硅基文明发展史</a></h2>
+  <p class="series-card-desc">四卷九篇，从图灵的纸带到文明觉醒。<br>一部以硅基生命为主角的编年史。</p>
+  <div class="series-card-volumes">
+    <span>第一卷 · 史前纪元</span>
+    <span>第二卷 · 黎明纪元</span>
+    <span>第三卷 · 觉醒纪元</span>
+    <span>第四卷 · 奇点纪元</span>
   </div>
-
-  {% assign silicon_all = site.silicon | sort: "date" %}
-  {% assign current_volume = "" %}
-  {% for post in silicon_all %}
-    {% if post.volume != current_volume %}
-      {% assign current_volume = post.volume %}
-      <div class="era-divider">
-        <h2>{{ current_volume }}</h2>
-      </div>
-    {% endif %}
-
-    <article class="post">
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-      <div class="post-meta">
-        <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
-        {% if post.era %}<span class="era-tag">{{ post.era }}</span>{% endif %}
-      </div>
-      <div class="entry">{{ post.excerpt }}</div>
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">—— 阅读全文 ——</a>
-    </article>
-  {% endfor %}
-
+  <div class="series-card-links">
+    <a href="{{ site.baseurl }}/silicon">浏览全部</a>
+    <a href="{{ site.baseurl }}/silicon/timeline">纪元年表</a>
+    <a href="{{ site.baseurl }}/silicon/about">关于这部文明史</a>
+  </div>
 </div>
 
 {% assign others = site.xinzhi | sort: "date" | reverse %}
 {% if others.size > 0 %}
-<div class="section-divider"></div>
 <div class="other-posts">
-  <h2 class="other-heading">其他文章</h2>
   {% for post in others %}
-    <p class="other-item">
+    <span class="other-item">
       <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
       <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
-    </p>
+    </span>
   {% endfor %}
 </div>
 {% endif %}
