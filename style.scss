@@ -18,9 +18,9 @@ html {
 }
 
 body {
-  background: $bg-primary;
+  background: var(--bg);
   font: 18px/1.75 $font-body;
-  color: $text-primary;
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -67,7 +67,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-heading;
-  color: $text-primary;
+  color: var(--text);
   font-weight: 700;
   line-height: 1.5;
   margin: 1.2em 0 0.6em;
@@ -85,7 +85,7 @@ h1 {
 }
 
 h2 { font-size: 28px; }
-h3 { font-size: 22px; color: $gold; }
+h3 { font-size: 22px; color: var(--gold); }
 h4 { font-size: 18px; color: $text-secondary; }
 
 p {
@@ -93,7 +93,7 @@ p {
 }
 
 a {
-  color: $accent;
+  color: var(--accent);
   text-decoration: none;
   transition: all 0.2s ease;
   &:hover, &:active {
@@ -139,7 +139,7 @@ blockquote {
     top: -0.4em;
     left: 0.3em;
     font-size: 48px;
-    color: $accent-dim;
+    color: var(--accent)-dim;
     opacity: 0.3;
     font-style: normal;
   }
@@ -148,16 +148,16 @@ blockquote {
 // Selection
 ::-moz-selection {
   color: $bg-primary;
-  background: $accent;
+  background: var(--accent);
 }
 ::selection {
   color: $bg-primary;
-  background: $accent;
+  background: var(--accent);
 }
 
 // Scrollbar
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: $bg-primary; }
+::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb {
   background: rgba(255,255,255,0.1);
   border-radius: 3px;
@@ -226,9 +226,9 @@ blockquote {
   letter-spacing: 0.04em;
 
   a {
-    color: $text-primary;
+    color: var(--text);
     &:hover {
-      color: $accent;
+      color: var(--accent);
       text-shadow: 0 0 12px $accent-glow;
     }
   }
@@ -255,7 +255,7 @@ nav {
     color: $text-secondary;
 
     &:hover {
-      color: $accent;
+      color: var(--accent);
       text-shadow: 0 0 8px $accent-glow;
     }
   }
@@ -305,7 +305,7 @@ nav {
   h2 {
     font-family: $font-heading;
     font-size: 20px;
-    color: $gold;
+    color: var(--gold);
     margin: 0;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba($gold, 0.2);
@@ -327,7 +327,7 @@ nav {
     top: 8px;
     width: 9px;
     height: 9px;
-    background: $accent;
+    background: var(--accent);
     border-radius: 50%;
     box-shadow: 0 0 8px $accent-glow, 0 0 20px $accent-glow;
     z-index: 2;
@@ -346,9 +346,9 @@ nav {
     font-size: 26px;
 
     a {
-      color: $text-primary;
+      color: var(--text);
       &:hover {
-        color: $accent;
+        color: var(--accent);
         text-shadow: 0 0 10px $accent-glow;
       }
     }
@@ -371,7 +371,7 @@ nav {
       background: rgba($gold, 0.1);
       border: 1px solid rgba($gold, 0.2);
       border-radius: 3px;
-      color: $gold;
+      color: var(--gold);
       margin-left: 10px;
       font-size: 11px;
     }
@@ -394,7 +394,7 @@ nav {
   margin-top: 8px;
   font-family: $font-heading;
   font-size: 14px;
-  color: $accent;
+  color: var(--accent);
   letter-spacing: 0.06em;
   transition: all 0.2s ease;
 
@@ -432,7 +432,7 @@ article.post, article.page {
     background: rgba($gold, 0.08);
     border: 1px solid rgba($gold, 0.25);
     border-radius: 4px;
-    color: $gold;
+    color: var(--gold);
     font-family: $font-heading;
     font-size: 14px;
     letter-spacing: 0.06em;
@@ -577,7 +577,7 @@ pre {
     .era-title {
       font-family: $font-heading;
       font-size: 22px;
-      color: $gold;
+      color: var(--gold);
       margin: 0 0 12px 0;
       letter-spacing: 0.06em;
     }
