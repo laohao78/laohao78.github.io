@@ -632,6 +632,40 @@ pre {
   }
 }
 
+// Series intro
+.series-intro {
+  font-size: 16px;
+  color: $text-secondary;
+  font-style: italic;
+  line-height: 1.8;
+  margin: 0;
+}
+
+// Other posts (standalone articles below main series)
+.other-posts {
+  margin-top: 0;
+}
+.other-heading {
+  font-size: 18px;
+  color: $text-muted;
+  margin: 0 0 12px 0;
+  font-weight: 400;
+}
+.other-item {
+  font-size: 15px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  .post-date {
+    font-family: $font-mono;
+    font-size: 11px;
+    color: $text-muted;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+}
+
 // Utility
 .hidden { display: none; }
 
