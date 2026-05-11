@@ -633,68 +633,92 @@ pre {
 }
 
 // ============================
-// Homepage — series card
+// Homepage — two cards
 // ============================
+.home-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
 .series-card {
   border: 1px solid $border-glow;
   border-radius: 12px;
-  padding: 32px;
-  margin-bottom: 40px;
+  padding: 28px;
   background: rgba(0, 229, 255, 0.03);
 }
 .series-card-title {
   font-family: $font-heading;
-  font-size: 26px;
-  margin: 0 0 8px 0;
+  font-size: 22px;
+  margin: 0 0 6px 0;
   a { color: var(--text); }
 }
 .series-card-desc {
   color: $text-secondary;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.7;
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
 }
 .series-card-volumes {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: 6px;
+  margin-bottom: 16px;
   span {
-    font-size: 12px;
+    font-size: 11px;
     color: $gold;
     background: rgba($gold, 0.08);
     border: 1px solid rgba($gold, 0.15);
-    padding: 3px 10px;
+    padding: 2px 8px;
     border-radius: 4px;
     font-family: $font-heading;
   }
 }
 .series-card-links {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   a {
     font-family: $font-heading;
-    font-size: 14px;
+    font-size: 13px;
     color: $accent;
     letter-spacing: 0.04em;
   }
 }
 
-// Other posts — minimal footer line
-.other-posts {
-  margin-top: 48px;
-  padding-top: 16px;
-  border-top: 1px solid $border-subtle;
-  text-align: center;
-}
-.other-item {
-  font-size: 14px;
-  .post-date {
-    font-family: $font-mono;
-    font-size: 11px;
-    color: $text-muted;
-    margin-left: 10px;
+// Article list inside card
+.series-card-posts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid $border-subtle;
+    gap: 10px;
+    a {
+      font-family: $font-heading;
+      font-size: 15px;
+      flex: 1;
+      min-width: 0;
+    }
+    .post-date {
+      font-family: $font-mono;
+      font-size: 10px;
+      color: $text-muted;
+      white-space: nowrap;
+    }
   }
+}
+.series-card-empty {
+  color: $text-muted;
+  font-style: italic;
+  font-size: 13px;
 }
 
 // Utility
