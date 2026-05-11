@@ -89,11 +89,62 @@ Libsass（GitHub Pages 使用的 SCSS 编译器）在编译期执行这些函数
 
 ---
 
+---
+
+## 7. `rgba(var(--x), alpha)` 也会导致 SCSS 编译失败
+
+**现象**：用 `rgba(var(--gold-rgb), 0.2)` 的方式引用 CSS 变量作为颜色分量，构建失败。
+
+**原因**：SCSS 的 `rgba()` 函数同样在编译期解析颜色参数。`var(--gold-rgb)` 不是有效的编译期颜色值，报错。
+
+**修复**：预计算所有 alpha 变体为独立 CSS 变量：
+```css
+:root { --gold-rgba-02: rgba(201,168,76,0.2); }
+```
+然后在 SCSS 中用 `var(--gold-rgba-02)` 引用。或者保持 SCSS 编译期变量 `$gold-rgba-02`。
+
+**教训**：**任何** SCSS 颜色函数（`lighten`、`darken`、`rgba`、`saturate` 等）传 CSS 变量都会报错。唯一安全的用法是 `var()` 作为简单属性值，不被任何 SCSS 函数包裹。
+
+---
+
+## 8. CSS 变量作用域丢失——`:root` 默认值不可省略
+
+**现象**：所有使用 `var(--bg-masthead)` 等 CSS 变量的组件显示为黑色/透明，浅色主题切换后 masthead 和 footer 不变色。
+
+**原因**：将 CSS 变量定义从 `:root` 移到 `.theme-dark` 和 `.theme-light` 后，如果 JS 未运行或运行延迟，body 上没有 theme class，所有 CSS 变量都是未定义状态。
+
+**修复**：`:root` 始终保留默认值（深色主题），`.theme-light` 仅覆盖需要变化的变量：
+```css
+:root { --bg: #0a0a0f; --bg-masthead: rgba(10,10,15,0.92); }
+body.theme-light { --bg: #f8f6f0; --bg-masthead: rgba(248,246,240,0.92); }
+```
+
+---
+
+## 9. CSS 自定义属性需绕过 SCSS 编译管线
+
+**现象**：在 `_sass/_variables.scss` 中使用 `:root { --bg: #0a0a0f; }` 定义 CSS 变量，构建失败。
+
+**原因**：`_sass/` 下的文件全部经由 libsass 编译器处理。libsass 在处理 `:root` 块中的 CSS 变量时，可能与后续的 `@mixin` 或 SCSS 变量产生不可预见的冲突。具体错误日志无法获取（需要仓库 admin 权限）。
+
+**修复**：将 CSS 变量定义移到 `_includes/theme-vars.html` 中的内联 `<style>` 标签，在布局 `<head>` 中通过 `{% include %}` 注入。这是纯 HTML/CSS，Jekyll 直接输出，不经过 SCSS 编译器。
+
+**最终架构**：
+- `_sass/_variables.scss` — 纯 SCSS 变量（`$bg`, `$gold-rgba-02` 等），供 `lighten`/`darken`/`rgba` 等 SCSS 函数使用
+- `_includes/theme-vars.html` — CSS 自定义属性（内联 `<style>`），定义 `:root` 和 `body.theme-*` 的主题变量
+- `style.scss` — 混合使用：简单颜色用 `var(--x)`，SCSS 函数用 `$x`
+
+---
+
 ## 经验总结
 
 | 原则 | 说明 |
 |------|------|
 | 无本地环境时，每次推送前确认上一次构建成功 | 否则会积累多层问题难以定位 |
 | CSS 自定义属性 ≠ SCSS 变量 | 可以共存于同一文件但不能交叉使用 SCSS 函数 |
-| Liquid 兼容性优先 | `where`、`reversed` 等"高级"过滤器在安全模式下不可靠，`if` + `sort` 最稳妥 |
+| `var()` 只能作为简单属性值 | 不能传给 `lighten`/`darken`/`rgba`/任何 SCSS 函数 |
+| `:root` 作为 CSS 变量默认值不可省略 | 确保 JS 未运行时页面也有正常外观 |
+| CSS 变量定义绕开 SCSS | 放在内联 `<style>` 或独立 `.css` 文件中，不放在 `_sass/` 下 |
+| Liquid 兼容性优先 | `where`、`reversed` 等"高级"过滤器不可靠，`if` + `sort` 最稳妥 |
 | 目录命名 | Jekyll 中 `_` 前缀是特权符号，自定义目录一律不用 |
+| Collections 优于 category | 用 Jekyll Collections 组织多栏目，比 `category` + `for+if` 更干净 |
