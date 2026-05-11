@@ -1,45 +1,65 @@
 
 //
-// VARIABLES — 硅基文明发展史 · 星空史书
+// VARIABLES — Collections 视觉系统
 //
 
-// Colors — Dark cosmic palette
-$bg-primary: #0a0a0f;
+// ============================
+// SCSS 编译期变量（供 SCSS 函数使用）
+// ============================
+$bg: #0a0a0f;
 $bg-secondary: #111118;
 $bg-card: #14141f;
-$text-primary: #d4c8a8;
+$bg-code: #0d0d14;
+$text: #d4c8a8;
 $text-secondary: #a09880;
 $text-muted: #6a6458;
 $accent: #00e5ff;
-$accent-glow: rgba(0, 229, 255, 0.15);
 $accent-dim: #008899;
+$accent-glow: rgba(0, 229, 255, 0.15);
 $gold: #c9a84c;
 $gold-dim: #8a7030;
-$red-accent: #ff4466;
-$green-terminal: #00ff88;
+$gold-rgba-008: rgba(201, 168, 76, 0.08);
+$gold-rgba-01: rgba(201, 168, 76, 0.1);
+$gold-rgba-02: rgba(201, 168, 76, 0.2);
+$gold-rgba-025: rgba(201, 168, 76, 0.25);
+$gold-rgba-03: rgba(201, 168, 76, 0.3);
+$gold-rgba-04: rgba(201, 168, 76, 0.4);
+$accent-rgba-01: rgba(0, 229, 255, 0.1);
+$accent-rgba-025: rgba(0, 229, 255, 0.25);
 $border-subtle: rgba(255, 255, 255, 0.06);
 $border-glow: rgba(0, 229, 255, 0.2);
-
-// Font stacks
-$font-heading: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", Georgia, serif;
-$font-body: "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", "PingFang SC", -apple-system, sans-serif;
+$font-heading: "Noto Serif SC", "Source Han Serif SC", SimSun, STSong, Georgia, serif;
+$font-body: "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
 $font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", "Courier New", monospace;
 
+// ============================
+// CSS 自定义属性（仅用于栏目级覆盖）
+// ============================
+:root {
+  --bg: #{$bg};
+  --text: #{$text};
+  --accent: #{$accent};
+  --accent-dim: #{$accent-dim};
+  --gold: #{$gold};
+}
+
+body.collection-xinzhi {
+  --bg: #f8f6f0;
+  --text: #2c2416;
+  --accent: #c41e3a;
+  --accent-dim: #8b1528;
+  --gold: #b8860b;
+}
+
+// ============================
 // Breakpoints
+// ============================
 @mixin mobile {
-  @media screen and (max-width: 640px) {
-    @content;
-  }
+  @media screen and (max-width: 640px) { @content; }
 }
-
 @mixin tablet {
-  @media screen and (max-width: 960px) {
-    @content;
-  }
+  @media screen and (max-width: 960px) { @content; }
 }
-
 @mixin wide {
-  @media screen and (min-width: 1200px) {
-    @content;
-  }
+  @media screen and (min-width: 1200px) { @content; }
 }
