@@ -633,98 +633,65 @@ pre {
 }
 
 // ============================
-// Homepage — hero + side cards
+// Homepage — typographic layout
 // ============================
-
-// Hero card — full width, prominent
-.hero-card {
-  border: 1px solid $border-glow;
-  border-radius: 12px;
-  padding: 36px 36px 28px;
-  margin-bottom: 36px;
-  background: linear-gradient(135deg, rgba(0,229,255,0.04) 0%, rgba(0,229,255,0.01) 100%);
+.home-section {
+  margin-bottom: 48px;
 }
-.hero-title {
+.home-hero {
+  margin-bottom: 56px;
+}
+
+.home-heading {
   font-family: $font-heading;
-  font-size: 28px;
-  margin: 0 0 8px 0;
+  font-size: 24px;
+  margin: 0 0 6px 0;
+  font-weight: 700;
+  letter-spacing: 0.03em;
   a { color: var(--text); }
 }
-.hero-desc {
+
+.home-sub {
   color: $text-secondary;
   font-size: 15px;
-  line-height: 1.7;
-  margin: 0 0 20px 0;
-  max-width: 540px;
+  line-height: 1.6;
+  margin: 0 0 14px 0;
+  max-width: 520px;
 }
-.hero-volumes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
-  span {
-    font-size: 12px;
-    color: $gold;
-    background: rgba($gold, 0.08);
-    border: 1px solid rgba($gold, 0.15);
-    padding: 3px 10px;
-    border-radius: 4px;
-    font-family: $font-heading;
-  }
-}
-.hero-links {
-  display: flex;
-  gap: 24px;
+
+.home-volumes {
+  font-family: $font-heading;
+  font-size: 14px;
+  margin: 0;
+  color: $text-muted;
   a {
-    font-family: $font-heading;
-    font-size: 14px;
-    color: $accent;
-    letter-spacing: 0.04em;
-    &:hover { text-shadow: 0 0 8px $accent-glow; }
+    color: $gold;
+    &:hover { color: var(--accent); }
+  }
+  span {
+    margin: 0 6px;
+    color: $text-muted;
+    opacity: 0.4;
   }
 }
 
-// Side cards — 2 columns, compact
-.side-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  @include tablet { grid-template-columns: 1fr; }
-}
-.side-card {
-  border: 1px solid $border-subtle;
-  border-radius: 10px;
-  padding: 24px;
-  background: rgba(255,255,255,0.01);
-  h3 {
-    font-family: $font-heading;
-    font-size: 19px;
-    margin: 0 0 4px 0;
-    a { color: var(--text); }
-  }
-}
-.side-card-desc {
-  color: $text-muted;
-  font-size: 13px;
-  line-height: 1.6;
-  margin: 0 0 14px 0;
-}
-.side-card-posts {
+.home-posts {
   list-style: none;
   padding: 0;
   margin: 0;
   li {
-    padding: 5px 0;
-    border-bottom: 1px solid $border-subtle;
-    &:last-child { border-bottom: none; }
+    padding: 4px 0;
     a {
       font-family: $font-heading;
-      font-size: 14px;
+      font-size: 15px;
       color: $text-secondary;
-      &:hover { color: $accent; }
+      &:hover { color: var(--accent); }
     }
   }
 }
+
+// Hide old home-cards/series-card/side-card styles
+// (kept for backwards compat, remove later)
 
 // Utility
 .hidden { display: none; }
