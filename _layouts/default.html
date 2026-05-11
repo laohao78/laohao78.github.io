@@ -18,7 +18,7 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.baseurl }}/feed.xml" />
   </head>
 
-  <body class="collection-{{ page.collection }}">
+  <body>
     <div class="wrapper-masthead">
       <div class="container">
         <header class="masthead clearfix">
@@ -34,6 +34,7 @@
             <a href="{{ site.baseurl }}/silicon">硅基文明</a>
             <a href="{{ site.baseurl }}/xinzhi">新质生产力</a>
             <a href="{{ site.baseurl }}/about">关于</a>
+            {% include theme-toggle.html %}
           </nav>
         </header>
       </div>
@@ -53,5 +54,6 @@
     </div>
 
     {% include analytics.html %}
+    {% include theme-script.html %}
   </body>
 </html>

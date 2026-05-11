@@ -266,6 +266,22 @@ nav {
   }
 }
 
+// Theme toggle
+#theme-toggle {
+  background: none;
+  border: 1px solid $border-subtle;
+  border-radius: 50%;
+  width: 32px; height: 32px;
+  font-size: 15px;
+  cursor: pointer;
+  color: $text-secondary;
+  margin-left: 20px;
+  padding: 0;
+  line-height: 1;
+  transition: all 0.2s;
+  &:hover { color: $accent; border-color: $accent; }
+}
+
 // .main
 .posts {
   position: relative;

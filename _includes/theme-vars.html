@@ -1,17 +1,27 @@
 <style>
-:root {
+/* ================================
+   主题系统 — 添加新主题只需加一个 .theme-XXX 块
+   ================================ */
+
+/* 星空史书（默认深色） */
+.theme-dark {
   --bg: #0a0a0f;
   --text: #d4c8a8;
   --accent: #00e5ff;
   --accent-dim: #008899;
   --gold: #c9a84c;
 }
-body.collection-xinzhi {
+
+/* 白皮书（浅色） */
+.theme-light {
   --bg: #f8f6f0;
   --text: #2c2416;
   --accent: #c41e3a;
   --accent-dim: #8b1528;
   --gold: #b8860b;
 }
-body.collection-xinzhi::before { display: none; }
+
+/* 浅色主题隐藏星空背景 */
+.theme-light body::before,
+body.theme-light::before { display: none; }
 </style>
