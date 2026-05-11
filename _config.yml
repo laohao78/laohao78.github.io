@@ -19,6 +19,7 @@ url: https://laohao78.github.io
 baseurl: ""
 
 permalink: /:title/
+future: true
 
 version: v2.0.0
 
