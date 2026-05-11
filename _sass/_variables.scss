@@ -1,29 +1,59 @@
 
 //
-// VARIABLES — 硅基文明发展史 · 星空史书
+// VARIABLES — 多栏目视觉系统
 //
 
-// Colors — Dark cosmic palette
-$bg-primary: #0a0a0f;
-$bg-secondary: #111118;
-$bg-card: #14141f;
-$text-primary: #d4c8a8;
-$text-secondary: #a09880;
-$text-muted: #6a6458;
-$accent: #00e5ff;
-$accent-glow: rgba(0, 229, 255, 0.15);
-$accent-dim: #008899;
-$gold: #c9a84c;
-$gold-dim: #8a7030;
-$red-accent: #ff4466;
-$green-terminal: #00ff88;
-$border-subtle: rgba(255, 255, 255, 0.06);
-$border-glow: rgba(0, 229, 255, 0.2);
+// ============================
+// 硅基文明 — 星空史书（默认主题）
+// ============================
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+  --bg-card: #14141f;
+  --text-primary: #d4c8a8;
+  --text-secondary: #a09880;
+  --text-muted: #6a6458;
+  --accent: #00e5ff;
+  --accent-glow: rgba(0, 229, 255, 0.15);
+  --accent-dim: #008899;
+  --gold: #c9a84c;
+  --gold-dim: #8a7030;
+  --red-accent: #ff4466;
+  --green-terminal: #00ff88;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-glow: rgba(0, 229, 255, 0.2);
+  --font-heading: "Noto Serif SC", "Source Han Serif SC", SimSun, STSong, Georgia, serif;
+  --font-body: "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", "Courier New", monospace;
+  --accent-rgb: 0, 229, 255;
+  --gold-rgb: 201, 168, 76;
+}
 
-// Font stacks
-$font-heading: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", Georgia, serif;
-$font-body: "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", "PingFang SC", -apple-system, sans-serif;
-$font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", "Courier New", monospace;
+// ============================
+// 新质生产力 — 白皮书·政策智库
+// ============================
+body.category-新质生产力 {
+  --bg-primary: #f8f6f0;
+  --bg-secondary: #f0ede5;
+  --bg-card: #ffffff;
+  --text-primary: #2c2416;
+  --text-secondary: #5c5240;
+  --text-muted: #8a8070;
+  --accent: #c41e3a;
+  --accent-glow: rgba(196, 30, 58, 0.08);
+  --accent-dim: #8b1528;
+  --gold: #b8860b;
+  --gold-dim: #7a5a08;
+  --red-accent: #c41e3a;
+  --green-terminal: #2d5016;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-glow: rgba(196, 30, 58, 0.2);
+  --accent-rgb: 196, 30, 58;
+  --gold-rgb: 184, 134, 11;
+}
+
+// Font stacks (shared across categories)
+// --font-heading, --font-body, --font-mono already defined in :root
 
 // Breakpoints
 @mixin mobile {

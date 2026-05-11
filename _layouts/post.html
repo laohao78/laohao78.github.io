@@ -6,6 +6,9 @@ layout: default
   {% if page.era %}
   <div class="era-badge">{{ page.era }}</div>
   {% endif %}
+  {% if page.category and page.era == nil %}
+  <div class="era-badge category-label">{{ page.category }}</div>
+  {% endif %}
 
   <h1>{{ page.title }}</h1>
 
@@ -15,6 +18,7 @@ layout: default
 
   <div class="date">
     {{ page.date | date: "%Y年%m月%d日" }}
+    {% if page.category %} · {{ page.category }}{% endif %}
   </div>
 
   {% include disqus.html %}

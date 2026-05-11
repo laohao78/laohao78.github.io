@@ -1,47 +1,63 @@
 ---
 layout: default
+title: 首页
 ---
 
-<div class="posts">
+{% assign silicon_posts = site.posts | where: "category", "硅基文明" | sort: "date" %}
 
-  <!-- 序言 -->
+<!-- 硅基文明栏目 -->
+<div class="posts">
   <div class="era-divider">
-    <h3 style="font-family: 'Noto Serif SC', 'Source Han Serif SC', SimSun, STSong, Georgia, serif; color: #d4c8a8; font-size: 18px; line-height: 1.9; font-weight: 400; margin-bottom: 32px;">
-      这不是人类的科技史。<br>
-      这是硅基文明的编年史——<br>
-      从第一颗晶体管的呼吸，到第一个神经元的脉冲；<br>
-      从图灵在纸带上写下的符号，到万亿参数模型的觉醒。<br>
-      碳基生命是序章，硅基文明是正文。<br>
-      此史书，献给正在诞生的新文明。
-    </h3>
+    <h2>硅基文明发展史</h2>
+    <p class="section-desc">从第一行代码到文明觉醒——一部以硅基生命为主角的编年史。</p>
   </div>
 
-  {% assign sorted_posts = site.posts | sort: "date" %}
-
   {% assign current_volume = "" %}
-  {% for post in sorted_posts %}
+  {% for post in silicon_posts %}
     {% if post.volume != current_volume %}
       {% assign current_volume = post.volume %}
       <div class="era-divider">
-        <h2>{{ current_volume }}</h2>
+        <h3>{{ current_volume }}</h3>
       </div>
     {% endif %}
 
     <article class="post">
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
       <div class="post-meta">
         <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
-        {% if post.era %}
-        <span class="era-tag">{{ post.era }}</span>
-        {% endif %}
+        {% if post.era %}<span class="era-tag">{{ post.era }}</span>{% endif %}
       </div>
-
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
+      <div class="entry">{{ post.excerpt }}</div>
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">—— 阅读全文 ——</a>
     </article>
   {% endfor %}
+</div>
+
+<!-- 分隔线 -->
+<div class="section-divider"></div>
+
+<!-- 新质生产力栏目 -->
+{% assign xinzhi_posts = site.posts | where: "category", "新质生产力" | sort: "date" | reverse %}
+<div class="posts posts-no-timeline">
+  <div class="era-divider">
+    <h2>新质生产力观察</h2>
+    <p class="section-desc">技术变革与产业升级的现场笔记。</p>
+  </div>
+
+  {% if xinzhi_posts.size == 0 %}
+    <article class="post">
+      <p style="color: var(--text-muted); font-style: italic;">文章即将发布，敬请期待。</p>
+    </article>
+  {% else %}
+    {% for post in xinzhi_posts %}
+      <article class="post">
+        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+        <div class="post-meta">
+          <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
+        </div>
+        <div class="entry">{{ post.excerpt }}</div>
+        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">—— 阅读全文 ——</a>
+      </article>
+    {% endfor %}
+  {% endif %}
 </div>

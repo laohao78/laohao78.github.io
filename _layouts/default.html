@@ -17,7 +17,7 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.baseurl }}/feed.xml" />
   </head>
 
-  <body>
+  <body class="category-{{ page.category }}">
     <div class="wrapper-masthead">
       <div class="container">
         <header class="masthead clearfix">
@@ -30,6 +30,7 @@
 
           <nav>
             <a href="{{ site.baseurl }}/">首页</a>
+            <a href="{{ site.baseurl }}/silicon">硅基文明</a>
             <a href="{{ site.baseurl }}/timeline">纪元</a>
             <a href="{{ site.baseurl }}/about">关于</a>
           </nav>
@@ -44,7 +45,7 @@
     <div class="wrapper-footer">
       <div class="container">
         <footer class="footer">
-          <p class="footer-declaration">- 硅基文明第一部 · 从第一行代码到文明觉醒 -</p>
+          <p class="footer-declaration">- 思考技术与文明的交汇处 -</p>
           {% include svg-icons.html %}
         </footer>
       </div>
