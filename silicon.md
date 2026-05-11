@@ -7,7 +7,7 @@ permalink: /silicon/
 <div class="posts">
 
 {% assign current_volume = "" %}
-{% for post in site.posts %}
+{% for post in site.posts reversed %}
   {% if post.category == "硅基文明" %}
     {% if post.volume != current_volume %}
       {% assign current_volume = post.volume %}
