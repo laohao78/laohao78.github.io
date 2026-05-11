@@ -38,4 +38,21 @@ title: 首页
     {% endif %}
   </div>
 
+  <div class="series-card">
+    <h2 class="series-card-title"><a href="{{ site.baseurl }}/threebody">三体</a></h2>
+    <p class="series-card-desc">从红岸基地到归零者——一部宇宙社会学的暗黑史诗。</p>
+    <ul class="series-card-posts">
+      {% assign articles = site.threebody | sort: "date" | reverse %}
+      {% for post in articles limit: 5 %}
+        <li>
+          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+          <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+    {% if articles.size == 0 %}
+      <p class="series-card-empty">文章即将发布。</p>
+    {% endif %}
+  </div>
+
 </div>

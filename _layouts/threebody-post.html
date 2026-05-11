@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<article class="post">
+  <div class="era-badge category-label">三体</div>
+
+  <h1>{{ page.title }}</h1>
+
+  <div class="entry">
+    {{ content }}
+  </div>
+
+  <div class="date">
+    {{ page.date | date: "%Y年%m月%d日" }}
+  </div>
+
+  {% include disqus.html %}
+</article>

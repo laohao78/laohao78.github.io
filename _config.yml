@@ -38,6 +38,8 @@ collections:
     output: true
   xinzhi:
     output: true
+  threebody:
+    output: true
 
 plugins:
   - jekyll-sitemap
