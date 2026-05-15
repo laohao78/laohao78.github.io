@@ -50,6 +50,17 @@ title: 首页
           {% endfor %}
         </ul>
       </div>
+
+      <div class="home-card">
+        <h3><a href="{{ site.baseurl }}/notes">技术笔记</a></h3>
+        <p class="home-card-desc">ROS、SLAM、仿真——实战中的踩坑与解法。</p>
+        <ul class="home-card-list">
+          {% assign notes = site.notes | sort: "date" | reverse %}
+          {% for post in notes limit: 3 %}
+            <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
   </section>
 

@@ -36,4 +36,15 @@ permalink: /writing/
       {% endfor %}
     </ul>
   </div>
+
+  <div class="writing-card">
+    <h3><a href="{{ site.baseurl }}/notes">技术笔记</a></h3>
+    <p class="writing-card-desc">ROS、SLAM、仿真——实战踩坑与解法。</p>
+    <ul>
+      {% assign notes = site.notes | sort: "date" | reverse %}
+      {% for post in notes %}
+        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>

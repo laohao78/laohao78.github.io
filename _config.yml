@@ -40,6 +40,8 @@ collections:
     output: true
   threebody:
     output: true
+  notes:
+    output: true
 
 plugins:
   - jekyll-sitemap
