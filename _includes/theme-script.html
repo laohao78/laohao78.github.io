@@ -1,19 +1,16 @@
 <script>
 (function() {
   var KEY = 'theme';
-  var sel = document.getElementById('theme-select');
+  var btn = document.getElementById('theme-toggle');
   var body = document.body;
-  var themes = ['dark', 'light', 'terminal', 'sepia'];
 
-  var current = localStorage.getItem(KEY) || 'dark';
-  body.classList.add('theme-' + current);
-  sel.value = current;
+  if (localStorage.getItem(KEY) === 'light') {
+    body.classList.add('theme-light');
+  }
 
-  sel.addEventListener('change', function() {
-    var next = sel.value;
-    themes.forEach(function(t) { body.classList.remove('theme-' + t); });
-    body.classList.add('theme-' + next);
-    localStorage.setItem(KEY, next);
+  btn.addEventListener('click', function() {
+    body.classList.toggle('theme-light');
+    localStorage.setItem(KEY, body.classList.contains('theme-light') ? 'light' : 'dark');
   });
 })();
 </script>
