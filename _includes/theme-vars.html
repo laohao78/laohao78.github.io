@@ -1,10 +1,10 @@
 <style>
-/* ================================
-   主题系统 — :root 默认深色，body.theme-light 覆盖浅色
-   加新主题只需新增一个 .theme-XXX 块
-   ================================ */
+/* ============================
+   主题系统 — 下拉多选
+   ============================ */
 
-:root {
+/* 星空（默认深色） */
+:root, .theme-dark {
   --bg: #0a0a0f;
   --bg-secondary: #111118;
   --bg-card: #14141f;
@@ -20,7 +20,8 @@
   --border-glow: rgba(0,229,255,0.18);
 }
 
-body.theme-light {
+/* 浅色 */
+.theme-light {
   --bg: #f8f6f0;
   --bg-secondary: #f0ede5;
   --bg-card: #ffffff;
@@ -36,5 +37,42 @@ body.theme-light {
   --border-glow: rgba(196,30,58,0.15);
 }
 
-body.theme-light::before { display: none; }
+/* 终端 */
+.theme-terminal {
+  --bg: #0c0c0c;
+  --bg-secondary: #121212;
+  --bg-card: #161616;
+  --bg-masthead: rgba(12,12,12,0.95);
+  --text: #00ff88;
+  --text-secondary: #00cc66;
+  --text-muted: #009944;
+  --accent: #00ff88;
+  --accent-dim: #009944;
+  --gold: #ffcc00;
+  --gold-dim: #aa8800;
+  --border-subtle: rgba(0,255,136,0.12);
+  --border-glow: rgba(0,255,136,0.18);
+}
+
+/* 暖纸 */
+.theme-sepia {
+  --bg: #f4ecd8;
+  --bg-secondary: #ece0c0;
+  --bg-card: #faf4e8;
+  --bg-masthead: rgba(244,236,216,0.94);
+  --text: #3d2b1f;
+  --text-secondary: #5c4033;
+  --text-muted: #8b6b4a;
+  --accent: #b5491a;
+  --accent-dim: #7a3010;
+  --gold: #c77d20;
+  --gold-dim: #8a5510;
+  --border-subtle: rgba(61,43,31,0.1);
+  --border-glow: rgba(181,73,26,0.15);
+}
+
+/* 非深色主题隐藏星空背景 */
+body.theme-light::before,
+body.theme-terminal::before,
+body.theme-sepia::before { display: none; }
 </style>
