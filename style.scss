@@ -781,38 +781,75 @@ pre {
 }
 
 // Writing hub
-.writing-section {
-  margin-bottom: 40px;
+.writing-hero {
+  border: 1px solid rgba($accent, 0.12);
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 36px;
+  background: linear-gradient(160deg, rgba($accent, 0.04), transparent 60%);
   h2 {
-    font-size: 22px;
-    margin: 0 0 6px 0;
+    font-family: $font-heading;
+    font-size: 26px;
+    margin: 0 0 8px 0;
     a { color: var(--text); }
   }
+  p {
+    font-size: 15px;
+    color: $text-secondary;
+    line-height: 1.7;
+    margin: 0 0 16px 0;
+    max-width: 480px;
+  }
 }
-.writing-desc {
-  font-size: 14px;
-  color: $text-secondary;
-  margin: 0 0 8px 0;
+.writing-hero-links {
+  display: flex;
+  gap: 18px;
+  a {
+    font-family: $font-heading;
+    font-size: 13px;
+    color: $accent;
+    letter-spacing: 0.03em;
+  }
 }
-.writing-links {
-  font-size: 13px;
-  margin: 0 0 12px 0;
-  a { color: $accent; font-family: $font-heading; }
-  span { color: $text-muted; margin: 0 8px; opacity: 0.4; }
+
+.writing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  @include tablet { grid-template-columns: 1fr; }
 }
-.writing-posts {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  li {
-    padding: 3px 0;
-    a {
-      font-family: $font-heading;
-      font-size: 15px;
-      color: $text-secondary;
-      &:hover { color: $accent; }
+.writing-card {
+  border: 1px solid $border-subtle;
+  border-radius: 10px;
+  padding: 24px;
+  h3 {
+    font-family: $font-heading;
+    font-size: 20px;
+    margin: 0 0 4px 0;
+    a { color: var(--text); }
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      padding: 4px 0;
+      border-bottom: 1px solid $border-subtle;
+      &:last-child { border-bottom: none; }
+      a {
+        font-family: $font-heading;
+        font-size: 14px;
+        color: $text-secondary;
+        &:hover { color: $accent; }
+      }
     }
   }
+}
+.writing-card-desc {
+  font-size: 13px;
+  color: $text-muted;
+  margin: 0 0 12px 0;
+  line-height: 1.5;
 }
 
 // Projects page
