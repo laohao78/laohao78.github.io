@@ -644,9 +644,15 @@ pre {
 }
 .home-greeting {
   font-family: $font-heading;
-  font-size: 16px;
-  color: $text-secondary;
+  font-size: 20px;
+  color: var(--text);
+  margin: 0 0 4px 0;
+}
+.home-subtitle {
+  font-size: 13px;
+  color: $text-muted;
   margin: 0;
+  letter-spacing: 0.04em;
 }
 
 // Sections

@@ -6,7 +6,8 @@ title: 首页
 <div class="home">
 
   <section class="home-intro">
-    <p class="home-greeting">机器人 + 强化学习 + 写作</p>
+    <p class="home-greeting">唐昊 · 机器人工程师</p>
+    <p class="home-subtitle">ROS · 机械臂 · 自主导航 · 具身智能 · 开源</p>
   </section>
 
   <section class="home-section">
@@ -55,14 +56,28 @@ title: 首页
   <section class="home-section">
     <div class="home-section-header">
       <h2 class="home-section-title"><a href="{{ site.baseurl }}/projects">项目</a></h2>
+      <a href="{{ site.baseurl }}/projects" class="home-section-more">全部 6 个 &rarr;</a>
     </div>
     <div class="home-grid home-grid-projects">
       <a href="{{ site.baseurl }}/projects" class="home-project-card">
+        <h3>Lerobot-Mujoco</h3>
+        <p class="home-card-desc">具身AI框架。ACT、pi0、SmolVLA 复现，数据采集到部署全流程。</p>
+        <span class="home-project-tags"><span>LeRobot</span><span>MuJoCo</span><span>IL</span></span>
+      </a>
+      <a href="{{ site.baseurl }}/projects" class="home-project-card">
+        <h3>ROS1 ARM Simulation</h3>
+        <p class="home-card-desc">完整机械臂仿真平台。相机标定、手眼标定、多算法视觉抓取。</p>
+        <span class="home-project-tags"><span>ROS1</span><span>Gazebo</span><span>MoveIt</span></span>
+      </a>
+      <a href="{{ site.baseurl }}/projects" class="home-project-card">
+        <h3>ROS2 RM Navigation</h3>
+        <p class="home-card-desc">RoboMaster 竞赛导航。多传感器融合、动态避障、实车适配。</p>
+        <span class="home-project-tags"><span>ROS2</span><span>Nav2</span><span>SLAM</span></span>
+      </a>
+      <a href="{{ site.baseurl }}/projects" class="home-project-card">
         <h3>Lite3 Handstand RL</h3>
-        <p class="home-card-desc">绝影 Lite3 四足机器人倒立控制。Isaac Gym → MuJoCo sim-to-sim。</p>
-        <span class="home-project-tags">
-          <span>RL</span><span>Sim-to-Sim</span><span>MuJoCo</span>
-        </span>
+        <p class="home-card-desc">四足机器人倒立控制。Isaac Gym RL 训练 + sim-to-sim MuJoCo。</p>
+        <span class="home-project-tags"><span>RL</span><span>Sim-to-Sim</span></span>
       </a>
     </div>
   </section>
