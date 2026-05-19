@@ -15,7 +15,7 @@ permalink: /silicon/timeline/
     {% assign current_volume = post.volume %}
     <div class="timeline-era">
       <div class="era-marker"></div>
-      <h2 class="era-title">{{ current_volume }}</h2>
+      <h2 class="era-title">{% if current_volume == "第五卷 · 自主纪元" %}第二部 · 自主纪元{% else %}{{ current_volume }}{% endif %}</h2>
       <ul class="era-posts">
   {% endif %}
 
