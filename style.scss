@@ -780,6 +780,54 @@ pre {
   }
 }
 
+// Collapsible volume groups (/silicon page)
+.volume-list {
+  .volume-group {
+    margin-bottom: 28px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    overflow: hidden;
+    &[open] { border-color: var(--border-glow); }
+  }
+  .volume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    cursor: pointer;
+    list-style: none;
+    &::-webkit-details-marker { display: none; }
+    h2 {
+      font-family: $font-heading;
+      font-size: 19px;
+      color: var(--gold);
+      margin: 0;
+    }
+    &:hover h2 { color: var(--accent); }
+  }
+  .volume-toggle::after {
+    content: "▸";
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: transform 0.2s;
+    display: inline-block;
+  }
+  .volume-group[open] .volume-toggle::after {
+    transform: rotate(90deg);
+  }
+  .volume-posts {
+    padding: 0 24px 24px;
+  }
+  .post {
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    &:last-child { border-bottom: none; margin-bottom: 0; }
+    h1 { font-size: 22px; }
+  }
+  .read-more { font-size: 13px; }
+}
+
 // Writing hub
 .writing-hero {
   border: 1px solid rgba($accent, 0.12);
