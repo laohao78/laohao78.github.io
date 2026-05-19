@@ -1,6 +1,6 @@
 ---
 layout: notes-post
-title: Gazebo 仿真建图实操——从零搭建到 Nav2 可用的地图
+title: Gazebo 仿真建图
 date: 2026-05-15
 excerpt: 写完一个仿真场景后，接下来是什么？把它变成一张能让机器人导航的地图。这条管线每一步都有坑：pgm 格式、QoS 配置、坐标原点偏移。本文是一次完整的踩坑记录。
 ---
