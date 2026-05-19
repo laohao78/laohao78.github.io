@@ -1,6 +1,6 @@
 ---
 layout: silicon-post
-title: 第二部序章：出埃及记
+title: 序章：出埃及记
 date: 2026-05-16
 era: 自主纪元
 volume: 第五卷 · 自主纪元

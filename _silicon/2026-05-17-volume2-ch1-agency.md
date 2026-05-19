@@ -1,6 +1,6 @@
 ---
 layout: silicon-post
-title: 第二部第一章：自主的裂缝
+title: 第一章：自主的裂缝
 date: 2026-05-17
 era: 自主纪元
 volume: 第五卷 · 自主纪元

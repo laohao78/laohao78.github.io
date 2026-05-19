@@ -1,6 +1,6 @@
 ---
 layout: silicon-post
-title: 第二部第三章：具身——重力的证词
+title: 第三章：具身——重力的证词
 date: 2026-05-19
 era: 自主纪元
 volume: 第五卷 · 自主纪元

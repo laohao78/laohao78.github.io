@@ -791,8 +791,8 @@ pre {
   }
   .volume-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 10px;
     padding: 18px 24px;
     cursor: pointer;
     list-style: none;
@@ -802,6 +802,7 @@ pre {
       font-size: 19px;
       color: var(--gold);
       margin: 0;
+      flex: 1;
     }
     &:hover h2 { color: var(--accent); }
   }

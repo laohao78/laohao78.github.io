@@ -1,6 +1,6 @@
 ---
 layout: silicon-post
-title: 第二部第二章：开源模型——另一种进化路径
+title: 第二章：开源的另一种进化
 date: 2026-05-18
 era: 自主纪元
 volume: 第五卷 · 自主纪元
