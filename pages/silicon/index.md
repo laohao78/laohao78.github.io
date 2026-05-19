@@ -15,7 +15,7 @@ permalink: /silicon/
 {% assign current_volume = "" %}
 {% for post in silicon_all %}
   {% if post.volume != current_volume %}
-    {% unless forloop.first %}</div>{% endunless %}
+    {% unless forloop.first %}</div></details>{% endunless %}
     {% assign current_volume = post.volume %}
     <details class="volume-group"{% if forloop.first %} open{% endif %}>
       <summary class="volume-header">
