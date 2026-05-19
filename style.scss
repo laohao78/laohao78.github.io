@@ -780,6 +780,20 @@ pre {
   }
 }
 
+// Part divider
+.part-divider {
+  text-align: center;
+  margin: 36px 0 20px;
+  span {
+    font-family: $font-heading;
+    font-size: 13px;
+    color: $text-muted;
+    letter-spacing: 0.1em;
+    &::before { content: "— "; opacity: 0.4; }
+    &::after  { content: " —"; opacity: 0.4; }
+  }
+}
+
 // Collapsible volume groups (/silicon page)
 .volume-list {
   .volume-group {

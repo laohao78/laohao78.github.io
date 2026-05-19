@@ -16,6 +16,9 @@ permalink: /silicon/
 {% for post in silicon_all %}
   {% if post.volume != current_volume %}
     {% unless forloop.first %}</div></details>{% endunless %}
+    {% if post.volume == "第五卷 · 自主纪元" and current_volume != "第五卷 · 自主纪元" %}
+      <div class="part-divider"><span>第二部</span></div>
+    {% endif %}
     {% assign current_volume = post.volume %}
     <details class="volume-group"{% if forloop.first %} open{% endif %}>
       <summary class="volume-header">
