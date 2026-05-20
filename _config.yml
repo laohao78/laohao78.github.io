@@ -42,6 +42,8 @@ collections:
     output: true
   notes:
     output: true
+  fangfalun:
+    output: true
 
 plugins:
   - jekyll-sitemap

@@ -15,7 +15,7 @@ title: 首页
       <h2 class="home-section-title"><a href="{{ site.baseurl }}/writing">专栏</a></h2>
       <a href="{{ site.baseurl }}/about" class="home-section-more">关于 &rarr;</a>
     </div>
-    <p class="home-section-desc">三个栏目，技术、文明与科幻的交汇处。</p>
+    <p class="home-section-desc">四个栏目，技术、方法、文明与科幻的交汇处。</p>
 
     <div class="home-grid">
       <div class="home-card">
@@ -58,6 +58,17 @@ title: 首页
         <ul class="home-card-list">
           {% assign notes = site.notes | sort: "date" | reverse %}
           {% for post in notes limit: 3 %}
+            <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="home-card">
+        <h3><a href="{{ site.baseurl }}/fangfalun">方法论</a></h3>
+        <p class="home-card-desc">思维方式、工作法则。从第一性原理到执行纪律。</p>
+        <ul class="home-card-list">
+          {% assign methods = site.fangfalun | sort: "date" | reverse %}
+          {% for post in methods limit: 3 %}
             <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
           {% endfor %}
         </ul>

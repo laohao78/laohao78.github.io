@@ -690,10 +690,10 @@ pre {
   margin: 0 0 20px 0;
 }
 
-// Writing cards — 3 columns
+// Writing cards — auto-fit columns
 .home-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   @include tablet { grid-template-columns: 1fr; }
 }

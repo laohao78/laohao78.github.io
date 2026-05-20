@@ -47,4 +47,15 @@ permalink: /writing/
       {% endfor %}
     </ul>
   </div>
+
+  <div class="writing-card">
+    <h3><a href="{{ site.baseurl }}/fangfalun">方法论</a></h3>
+    <p class="writing-card-desc">思维方式、工作法则。从第一性原理到执行纪律。</p>
+    <ul>
+      {% assign methods = site.fangfalun | sort: "date" | reverse %}
+      {% for post in methods %}
+        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>
