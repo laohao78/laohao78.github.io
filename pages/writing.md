@@ -58,4 +58,15 @@ permalink: /writing/
       {% endfor %}
     </ul>
   </div>
+
+  <div class="writing-card">
+    <h3><a href="{{ site.baseurl }}/talk">与优秀的人同行</a></h3>
+    <p class="writing-card-desc">对话访谈。那些在机器人、AI、SLAM 领域做出好东西的人。</p>
+    <ul>
+      {% assign talks = site.talk | sort: "date" | reverse %}
+      {% for post in talks %}
+        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>

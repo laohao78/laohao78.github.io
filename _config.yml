@@ -44,6 +44,8 @@ collections:
     output: true
   fangfalun:
     output: true
+  talk:
+    output: true
 
 plugins:
   - jekyll-sitemap

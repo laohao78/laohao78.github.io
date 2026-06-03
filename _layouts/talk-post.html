@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<article class="post">
+  <div class="era-badge category-label" style="background: rgba(106,180,208,0.12); border-color: rgba(106,180,208,0.25); color: var(--star-blue);">与优秀的人同行</div>
+  <h1>{{ page.title }}</h1>
+  <div class="post-meta">
+    <span>嘉宾：{{ page.guest }}</span>
+  </div>
+  <div class="entry">{{ content }}</div>
+  <div class="date">{{ page.date | date: "%Y年%m月%d日" }}</div>
+</article>
