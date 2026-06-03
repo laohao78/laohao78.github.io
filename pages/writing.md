@@ -6,7 +6,7 @@ permalink: /writing/
 
 <div class="writing-hero">
   <h2><a href="{{ site.baseurl }}/silicon">硅基文明发展史</a></h2>
-  <p>从第一行代码到文明觉醒。一部以硅基生命为主角的编年史，四卷九篇。</p>
+  <p>从第一行代码到文明觉醒。一部以硅基生命为主角的编年史。</p>
   <p class="writing-hero-links">
     <a href="{{ site.baseurl }}/silicon">浏览全部 &rarr;</a>
     <a href="{{ site.baseurl }}/silicon/timeline">纪元年表</a>
