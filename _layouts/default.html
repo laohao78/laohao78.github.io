@@ -56,5 +56,19 @@
 
     {% include analytics.html %}
     {% include theme-script.html %}
+    <script>
+    // 文章内 h2 小标题自动编号（访谈栏目已有 Q 编号，排除）
+    (function() {
+      var hs = document.querySelectorAll('.entry:not(.interview) h2');
+      if (!hs.length) return;
+      var total = hs.length;
+      for (var i = 0; i < total; i++) {
+        var num = document.createElement('span');
+        num.className = 'sec-num';
+        num.textContent = '§' + (i + 1) + '/' + total;
+        hs[i].insertBefore(num, hs[i].firstChild);
+      }
+    })();
+    </script>
   </body>
 </html>
