@@ -113,7 +113,7 @@ ol ul, ul ol, ul ul, ol ol { margin: 0; }
 ul ul, ol ul { list-style-type: circle; }
 
 em, i { font-style: italic; }
-strong, b { font-weight: 700; color: lighten($text-primary, 8%); }
+strong, b { font-weight: 700; }
 
 img {
   max-width: 100%;
@@ -143,6 +143,20 @@ img {
     margin: 0.6em 0;
     max-width: 94%;
     border-left: 3px solid var(--qa-highlight);
+  }
+
+  // 提问序号标记
+  .q-num {
+    display: inline-block;
+    font-size: 11px;
+    font-family: $font-mono;
+    color: var(--qa-highlight);
+    background: var(--qa-highlight-dim);
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-right: 8px;
+    vertical-align: middle;
+    letter-spacing: 0.03em;
   }
 }
 

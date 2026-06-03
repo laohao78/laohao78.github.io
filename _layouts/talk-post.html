@@ -13,14 +13,23 @@ layout: default
 </article>
 
 <script>
-// 自动给提问段落（赵松）加上 q 类，渲染为对话气泡
+// 自动识别提问段落：加 q 类（圆角气泡）+ 序号标记
 (function() {
   var ps = document.querySelectorAll('.interview p');
+  var qs = [];
   for (var i = 0; i < ps.length; i++) {
     var s = ps[i].querySelector('strong');
     if (s && /^赵松/.test(s.textContent.trim())) {
-      ps[i].classList.add('q');
+      qs.push(ps[i]);
     }
+  }
+  var total = qs.length;
+  for (var j = 0; j < total; j++) {
+    qs[j].classList.add('q');
+    var num = document.createElement('span');
+    num.className = 'q-num';
+    num.textContent = 'Q' + (j + 1) + '/' + total;
+    qs[j].insertBefore(num, qs[j].firstChild);
   }
 })();
 </script>
