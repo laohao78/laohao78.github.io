@@ -163,16 +163,16 @@ img {
 // 文章小标题序号（全局，不含访谈栏目）
 .sec-num {
   display: inline-block;
-  font-size: 10px;
+  font-size: 14px;
   font-family: $font-mono;
-  color: var(--accent-dim);
-  background: var(--qa-bubble);
-  border-radius: 4px;
-  padding: 1px 7px;
-  margin-right: 6px;
-  vertical-align: middle;
+  color: var(--bold-warm);
+  background: var(--qa-highlight-dim);
+  border-radius: 5px;
+  padding: 2px 8px;
+  margin-right: 8px;
+  vertical-align: baseline;
   letter-spacing: 0.04em;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .insight {
