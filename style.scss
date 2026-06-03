@@ -783,9 +783,9 @@ pre {
     background: rgba(255, 255, 255, 0.02);
 
     &:first-child {
-      color: var(--bg);
-      background: var(--accent);
-      border-color: var(--accent);
+      color: var(--text);
+      background: rgba(92, 207, 230, 0.10);
+      border-color: rgba(92, 207, 230, 0.24);
     }
 
     &:hover {
@@ -832,12 +832,12 @@ pre {
 .home-hero {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--border-glow);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
-  padding: 34px 36px 30px;
+  padding: 34px 36px 32px;
   margin-bottom: 22px;
   background:
-    linear-gradient(145deg, rgba(92, 207, 230, 0.10), rgba(18, 26, 38, 0.68) 42%, transparent 100%),
+    linear-gradient(145deg, rgba(122, 166, 204, 0.10), rgba(18, 26, 38, 0.72) 48%, rgba(255, 255, 255, 0.015) 100%),
     var(--bg-card);
 
   h3 {
@@ -868,22 +868,33 @@ pre {
   a {
     font-family: $font-heading;
     font-size: 14px;
-    color: var(--accent);
+    color: var(--text-secondary);
+
+    &:first-child {
+      color: var(--accent);
+    }
   }
 }
 .home-hero-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 0;
   a {
     font-size: 12px;
     font-family: $font-heading;
-    color: var(--accent);
-    background: rgba(92, 207, 230, 0.08);
-    border: 1px solid rgba(92, 207, 230, 0.15);
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--border-subtle);
     border-radius: 4px;
-    padding: 2px 10px;
+    padding: 4px 11px;
+
+    &:hover {
+      color: var(--accent);
+      border-color: rgba(92, 207, 230, 0.24);
+      background: rgba(92, 207, 230, 0.06);
+      text-shadow: none;
+    }
   }
 }
 .home-hero-list {
@@ -921,10 +932,10 @@ pre {
   }
 }
 .home-card {
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   padding: 20px;
-  background: rgba(18, 26, 38, 0.55);
+  background: rgba(18, 26, 38, 0.42);
   transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
   grid-column: span 2;
 
@@ -934,8 +945,8 @@ pre {
   }
 
   &:hover {
-    border-color: var(--border-glow);
-    background: rgba(18, 26, 38, 0.82);
+    border-color: rgba(255, 255, 255, 0.16);
+    background: rgba(18, 26, 38, 0.68);
     transform: translateY(-2px);
   }
 
@@ -980,15 +991,18 @@ pre {
   padding: 0;
   margin: 0;
   li {
-    padding: 7px 0;
-    border-bottom: 1px solid var(--border-subtle);
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
     &:last-child { border-bottom: none; }
     a {
       font-family: $font-heading;
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.55;
-      color: var(--text-secondary);
-      &:hover { color: $accent; }
+      color: var(--text-muted);
+      &:hover {
+        color: var(--accent);
+        text-shadow: none;
+      }
     }
   }
 }

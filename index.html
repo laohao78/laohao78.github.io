@@ -39,12 +39,6 @@ title: 首页
         <a href="{{ site.baseurl }}/silicon">奇点纪元</a>
         <a href="{{ site.baseurl }}/silicon">自主纪元</a>
       </div>
-      <ul class="home-hero-list">
-        {% assign silicon_all = site.silicon | sort: "date" | reverse %}
-        {% for post in silicon_all limit: 4 %}
-          <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-        {% endfor %}
-      </ul>
     </div>
 
     <!-- 其余五个栏目 -->
