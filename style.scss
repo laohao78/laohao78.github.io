@@ -120,12 +120,25 @@ img {
   border-radius: 4px;
 }
 
-// Interview Q&A
+// Interview Q&A — 圆角对话气泡
 .interview {
   p strong {
     color: var(--qa-highlight);
     font-weight: 700;
   }
+
+  // Q&A 行做成圆角气泡
+  p:has(strong) {
+    background: var(--qa-bubble);
+    border-radius: 8px;
+    padding: 0.7em 1em;
+    margin: 0.5em 0;
+    max-width: 94%;
+    border-left: 3px solid var(--qa-highlight-dim);
+    line-height: 1.85;
+  }
+
+  // 非 Q&A 的普通段落保持原样
   p {
     padding-left: 0;
     border-left: none;
