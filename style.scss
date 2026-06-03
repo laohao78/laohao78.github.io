@@ -757,6 +757,61 @@ pre {
   margin: 0 0 20px 0;
 }
 
+// Hero — 硅基文明全宽主推
+.home-hero {
+  border: 1px solid var(--border-glow);
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-bottom: 24px;
+  background: linear-gradient(160deg, var(--qa-bubble), transparent 70%);
+  h3 {
+    font-family: $font-heading;
+    font-size: 20px;
+    margin: 0 0 6px 0;
+    a { color: var(--text); }
+  }
+}
+.home-hero-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0 0 14px 0;
+  line-height: 1.6;
+}
+.home-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+  a {
+    font-size: 11px;
+    font-family: $font-heading;
+    color: var(--accent);
+    background: rgba(92, 207, 230, 0.08);
+    border: 1px solid rgba(92, 207, 230, 0.15);
+    border-radius: 4px;
+    padding: 2px 10px;
+  }
+}
+.home-hero-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 24px;
+  @include tablet { grid-template-columns: 1fr; }
+  li {
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border-subtle);
+    a {
+      font-family: $font-heading;
+      font-size: 14px;
+      color: var(--text-secondary);
+      &:hover { color: var(--accent); }
+    }
+  }
+}
+
 // Writing cards — auto-fit columns
 .home-grid {
   display: grid;

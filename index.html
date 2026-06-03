@@ -13,23 +13,30 @@ title: 首页
   <section class="home-section">
     <div class="home-section-header">
       <h2 class="home-section-title"><a href="{{ site.baseurl }}/writing">专栏</a></h2>
-      <a href="{{ site.baseurl }}/about" class="home-section-more">关于 &rarr;</a>
+      <a href="{{ site.baseurl }}/about" class="home-section-more">关于我 &rarr;</a>
     </div>
-    <p class="home-section-desc">专栏、技术、方法、对话——思想交汇处。</p>
 
-    <div class="home-grid">
-      <div class="home-card">
-        <h3><a href="{{ site.baseurl }}/silicon">硅基文明发展史</a></h3>
-        <p class="home-card-desc">一部以硅基生命为主角的编年史。从图灵的纸带到自主行动的文明。</p>
-        <div class="home-card-tags">
-          <a href="{{ site.baseurl }}/silicon">史前纪元</a>
-          <a href="{{ site.baseurl }}/silicon">黎明纪元</a>
-          <a href="{{ site.baseurl }}/silicon">觉醒纪元</a>
-          <a href="{{ site.baseurl }}/silicon">奇点纪元</a>
-          <a href="{{ site.baseurl }}/silicon">自主纪元</a>
-        </div>
+    <!-- 硅基文明 — 全宽主推 -->
+    <div class="home-hero">
+      <h3><a href="{{ site.baseurl }}/silicon">硅基文明发展史</a></h3>
+      <p class="home-hero-desc">一部以硅基生命为主角的编年史。从图灵的纸带到自主行动的文明。</p>
+      <div class="home-hero-tags">
+        <a href="{{ site.baseurl }}/silicon">史前纪元</a>
+        <a href="{{ site.baseurl }}/silicon">黎明纪元</a>
+        <a href="{{ site.baseurl }}/silicon">觉醒纪元</a>
+        <a href="{{ site.baseurl }}/silicon">奇点纪元</a>
+        <a href="{{ site.baseurl }}/silicon">自主纪元</a>
       </div>
+      <ul class="home-hero-list">
+        {% assign silicon_all = site.silicon | sort: "date" | reverse %}
+        {% for post in silicon_all limit: 4 %}
+          <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
 
+    <!-- 其余五个栏目 -->
+    <div class="home-grid">
       <div class="home-card">
         <h3><a href="{{ site.baseurl }}/xinzhi">新质生产力</a></h3>
         <p class="home-card-desc">AI 正在重写规则。观察、判断与对策。</p>
