@@ -165,11 +165,11 @@ img {
   display: inline-block;
   font-size: 10px;
   font-family: $font-mono;
-  color: var(--accent);
-  border: 1px solid var(--border-glow);
+  color: var(--accent-dim);
+  background: var(--qa-bubble);
   border-radius: 4px;
   padding: 1px 7px;
-  margin-right: 8px;
+  margin-right: 6px;
   vertical-align: middle;
   letter-spacing: 0.04em;
   font-weight: 400;
