@@ -1110,15 +1110,79 @@ pre {
 }
 
 // Writing hub
+.page-wide {
+  width: calc(100vw - 40px);
+  max-width: 1120px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+
+  > h1 {
+    display: none;
+  }
+
+  @include mobile {
+    width: auto;
+    margin-left: 0;
+    transform: none;
+  }
+}
+
+.writing-page {
+  margin-top: -18px;
+}
+
+.writing-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  padding: 34px 0 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--border-subtle);
+
+  h2 {
+    font-size: 42px;
+    line-height: 1.18;
+    margin: 0;
+  }
+
+  p {
+    max-width: 640px;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .writing-kicker {
+    color: var(--accent);
+    font-family: $font-mono;
+    font-size: 12px;
+  }
+
+  @include mobile {
+    h2 {
+      font-size: 32px;
+    }
+  }
+}
+
 .writing-hero {
   border: 1px solid rgba($accent, 0.12);
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 32px;
-  margin-bottom: 36px;
-  background: linear-gradient(160deg, rgba($accent, 0.04), transparent 60%);
+  margin-bottom: 22px;
+  background:
+    linear-gradient(145deg, rgba($accent, 0.10), rgba(18, 26, 38, 0.68) 42%, transparent 100%),
+    var(--bg-card);
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(320px, 1.15fr);
+  gap: 34px;
+  align-items: start;
+
   h2 {
     font-family: $font-heading;
-    font-size: 26px;
+    font-size: 30px;
+    line-height: 1.28;
     margin: 0 0 8px 0;
     a { color: var(--text); }
   }
@@ -1129,9 +1193,55 @@ pre {
     margin: 0 0 16px 0;
     max-width: 480px;
   }
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+
+  @include mobile {
+    padding: 24px 20px;
+  }
+}
+
+.writing-kicker {
+  color: var(--accent);
+  font-family: $font-mono;
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+
+.writing-hero-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0;
+
+  li {
+    border-bottom: 1px solid var(--border-subtle);
+
+    &:first-child {
+      border-top: 1px solid var(--border-subtle);
+    }
+  }
+
+  a {
+    display: block;
+    padding: 10px 0;
+    color: var(--text-secondary);
+    font-family: $font-heading;
+    font-size: 15px;
+    line-height: 1.55;
+
+    &:hover {
+      color: var(--accent);
+      text-shadow: none;
+    }
+  }
 }
 .writing-hero-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 18px;
   a {
     font-family: $font-heading;
@@ -1143,14 +1253,45 @@ pre {
 
 .writing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  @include tablet { grid-template-columns: 1fr; }
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 }
 .writing-card {
   border: 1px solid var(--border-subtle);
-  border-radius: 10px;
-  padding: 24px;
+  border-radius: 8px;
+  padding: 20px;
+  background: rgba(18, 26, 38, 0.55);
+  grid-column: span 2;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+
+  &:nth-child(4),
+  &:nth-child(5) {
+    grid-column: span 3;
+  }
+
+  &:hover {
+    border-color: var(--border-glow);
+    background: rgba(18, 26, 38, 0.82);
+    transform: translateY(-2px);
+  }
+
+  @include tablet {
+    grid-column: span 1;
+
+    &:nth-child(4),
+    &:nth-child(5) {
+      grid-column: span 1;
+    }
+  }
+
   h3 {
     font-family: $font-heading;
     font-size: 20px;
@@ -1162,23 +1303,27 @@ pre {
     padding: 0;
     margin: 0;
     li {
-      padding: 4px 0;
+      padding: 8px 0;
       border-bottom: 1px solid var(--border-subtle);
       &:last-child { border-bottom: none; }
       a {
         font-family: $font-heading;
         font-size: 14px;
+        line-height: 1.55;
         color: var(--text-secondary);
-        &:hover { color: $accent; }
+        &:hover {
+          color: $accent;
+          text-shadow: none;
+        }
       }
     }
   }
 }
 .writing-card-desc {
   font-size: 13px;
-  color: var(--text-muted);
-  margin: 0 0 12px 0;
-  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0 0 14px 0;
+  line-height: 1.65;
 }
 
 // Projects page

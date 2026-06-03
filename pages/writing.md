@@ -2,16 +2,33 @@
 layout: page
 title: 专栏
 permalink: /writing/
+wide: true
 ---
 
+<div class="writing-page">
+  <section class="writing-intro">
+    <p class="writing-kicker">Writing</p>
+    <h2>专栏</h2>
+    <p>这里收纳长期写作：一条主线讲硅基文明，一组侧栏记录 AI、机器人、方法论和对话。</p>
+  </section>
+
 <div class="writing-hero">
-  <h2><a href="{{ site.baseurl }}/silicon">硅基文明发展史</a></h2>
-  <p>从第一行代码到文明觉醒。一部以硅基生命为主角的编年史。</p>
-  <p class="writing-hero-links">
-    <a href="{{ site.baseurl }}/silicon">浏览全部 &rarr;</a>
-    <a href="{{ site.baseurl }}/silicon/timeline">纪元年表</a>
-    <a href="{{ site.baseurl }}/silicon/about">关于这部文明史</a>
-  </p>
+  <div>
+    <p class="writing-kicker">Featured Series</p>
+    <h2><a href="{{ site.baseurl }}/silicon">硅基文明发展史</a></h2>
+    <p>从第一行代码到文明觉醒。一部以硅基生命为主角的编年史。</p>
+    <p class="writing-hero-links">
+      <a href="{{ site.baseurl }}/silicon">浏览全部 &rarr;</a>
+      <a href="{{ site.baseurl }}/silicon/timeline">纪元年表</a>
+      <a href="{{ site.baseurl }}/silicon/about">关于这部文明史</a>
+    </p>
+  </div>
+  <ul class="writing-hero-list">
+    {% assign silicon_all = site.silicon | sort: "date" | reverse %}
+    {% for post in silicon_all limit: 5 %}
+      <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
 </div>
 
 <div class="writing-grid">
@@ -69,4 +86,5 @@ permalink: /writing/
       {% endfor %}
     </ul>
   </div>
+</div>
 </div>
