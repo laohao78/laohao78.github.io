@@ -120,6 +120,18 @@ img {
   border-radius: 4px;
 }
 
+.insight {
+  display: block;
+  margin: 2em 0;
+  padding: 1em 1.4em;
+  border: 1px solid var(--border-glow);
+  border-radius: 8px;
+  background: rgba(201, 168, 76, 0.04);
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
 // Blockquote — 铭文石碑风格
 blockquote {
   margin: 2em 0;
