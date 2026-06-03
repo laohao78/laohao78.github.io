@@ -113,7 +113,7 @@ ol ul, ul ol, ul ul, ol ol { margin: 0; }
 ul ul, ol ul { list-style-type: circle; }
 
 em, i { font-style: italic; }
-strong, b { font-weight: 700; }
+strong, b { font-weight: 700; color: var(--bold-warm); }
 
 img {
   max-width: 100%;
