@@ -11,3 +11,16 @@ layout: default
   <div class="entry interview">{{ content }}</div>
   <div class="date">{{ page.date | date: "%Y年%m月%d日" }}</div>
 </article>
+
+<script>
+// 自动给提问段落（赵松）加上 q 类，渲染为对话气泡
+(function() {
+  var ps = document.querySelectorAll('.interview p');
+  for (var i = 0; i < ps.length; i++) {
+    var s = ps[i].querySelector('strong');
+    if (s && /^赵松/.test(s.textContent.trim())) {
+      ps[i].classList.add('q');
+    }
+  }
+})();
+</script>
