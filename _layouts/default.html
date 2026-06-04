@@ -61,7 +61,7 @@
     (function() {
       var post = document.querySelector('article.post');
       if (!post) return;
-      var hs = post.querySelectorAll('.entry:not(.interview) h2');
+      var hs = post.querySelectorAll('.entry:not(.interview) h2, .entry:not(.interview) h3');
       if (!hs.length) return;
       var total = hs.length;
       for (var i = 0; i < total; i++) {
