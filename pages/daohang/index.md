@@ -6,7 +6,7 @@ permalink: /daohang/
 
 <div class="posts posts-no-timeline">
 
-{% assign posts = site.daohang | sort: "date" | reverse %}
+{% assign posts = site.daohang | sort: "date" %}
 {% for post in posts %}
   <article class="post">
     <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
