@@ -31,6 +31,23 @@ wide: true
   </ul>
 </div>
 
+<div class="writing-hero">
+  <div>
+    <p class="writing-kicker">Featured Series</p>
+    <h2><a href="{{ site.baseurl }}/daohang">导航的发展史</a></h2>
+    <p>从 Sputnik 到 GPS 到卡尔曼滤波。在这颗星球上寻找自己的位置。</p>
+    <p class="writing-hero-links">
+      <a href="{{ site.baseurl }}/daohang">浏览全部 &rarr;</a>
+    </p>
+  </div>
+  <ul class="writing-hero-list">
+    {% assign dh_posts = site.daohang | sort: "date" %}
+    {% for post in dh_posts limit: 5 %}
+      <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
 <div class="writing-grid">
   <div class="writing-card">
     <h3><a href="{{ site.baseurl }}/xinzhi">新质生产力</a></h3>
@@ -87,15 +104,5 @@ wide: true
     </ul>
   </div>
 
-  <div class="writing-card">
-    <h3><a href="{{ site.baseurl }}/daohang">导航的发展史</a></h3>
-    <p class="writing-card-desc">从 Sputnik 到 GPS 到卡尔曼滤波。在这颗星球上寻找自己的位置。</p>
-    <ul>
-      {% assign posts = site.daohang | sort: "date" | reverse %}
-      {% for post in posts %}
-        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-      {% endfor %}
-    </ul>
-  </div>
 </div>
 </div>
