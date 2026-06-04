@@ -46,6 +46,8 @@ collections:
     output: true
   talk:
     output: true
+  daohang:
+    output: true
 
 plugins:
   - jekyll-sitemap
