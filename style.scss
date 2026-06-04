@@ -243,26 +243,6 @@ img {
     color: var(--text);
     margin: 0 0 16px 0;
   }
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px 0;
-    li {
-      padding: 6px 0;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-    a {
-      font-family: $font-heading;
-      font-size: 13px;
-      color: var(--text-secondary);
-      &:hover { color: var(--accent); }
-    }
-    strong {
-      font-family: $font-heading;
-      font-size: 13px;
-      color: var(--bold-warm);
-    }
-  }
   &.open { right: 0; }
 }
 .side-toc-nav {
@@ -271,7 +251,10 @@ img {
   align-items: center;
   gap: 8px;
   padding-top: 12px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
   border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
   a {
     font-family: $font-heading;
     font-size: 13px;
@@ -282,6 +265,45 @@ img {
     font-family: $font-mono;
     font-size: 11px;
     color: var(--text-muted);
+  }
+}
+.side-toc-col {
+  margin-bottom: 8px;
+  summary {
+    font-family: $font-heading;
+    font-size: 13px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 4px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a { color: inherit; }
+    span {
+      font-family: $font-mono;
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+    &:hover { color: var(--accent); }
+    &::marker { font-size: 10px; }
+  }
+  ul {
+    margin: 0 0 0 8px !important;
+    padding: 0;
+    list-style: none;
+    li {
+      padding: 4px 0 !important;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    a {
+      font-size: 12px !important;
+      color: var(--text-muted);
+      &:hover { color: var(--accent); }
+    }
+    strong {
+      font-size: 12px !important;
+      color: var(--bold-warm);
+    }
   }
 }
 
