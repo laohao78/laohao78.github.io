@@ -1,5 +1,5 @@
 <!-- 侧边目录按钮 -->
-<button class="side-toc-btn" id="side-toc-btn" title="站点地图">&#9776;</button>
+<button class="side-toc-btn" id="side-toc-btn" title="站点地图">目录</button>
 
 <!-- 侧边目录面板 -->
 <div class="side-toc-overlay" id="side-toc-overlay"></div>
@@ -43,7 +43,7 @@
     {% assign cname = col_names[idx] %}
     {% assign articles = site[c] | sort: "date" %}
     {% if articles.size > 0 %}
-      <details class="side-toc-col"{% if c == page.collection %} open{% endif %}>
+      <details class="side-toc-col{% if c == page.collection %} cur{% endif %}"{% if c == page.collection %} open{% endif %}>
         <summary><a href="{{ site.baseurl }}/{{ c }}">{{ cname }}</a> <span>{{ articles.size }}</span></summary>
         <ul>
           {% for p in articles %}
