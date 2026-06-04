@@ -24,20 +24,36 @@ title: 首页
       <a href="{{ site.baseurl }}/about" class="home-section-more">关于我 &rarr;</a>
     </div>
 
-    <!-- 硅基文明 — 全宽主推 -->
-    <div class="home-hero">
-      <h3><a href="{{ site.baseurl }}/silicon">硅基文明发展史</a></h3>
-      <p class="home-hero-desc">一部以硅基生命为主角的编年史。从图灵的纸带到自主行动的文明。</p>
-      <p class="home-hero-actions">
-        <a href="{{ site.baseurl }}/silicon">进入正文 &rarr;</a>
-        <a href="{{ site.baseurl }}/silicon/timeline">纪元年表</a>
-      </p>
-      <div class="home-hero-tags">
-        <a href="{{ site.baseurl }}/silicon">史前纪元</a>
-        <a href="{{ site.baseurl }}/silicon">黎明纪元</a>
-        <a href="{{ site.baseurl }}/silicon">觉醒纪元</a>
-        <a href="{{ site.baseurl }}/silicon">奇点纪元</a>
-        <a href="{{ site.baseurl }}/silicon">自主纪元</a>
+    <!-- 双主推 — 硅基文明 + 导航的发展史 -->
+    <div class="home-heroes">
+      <div class="home-hero">
+        <h3><a href="{{ site.baseurl }}/silicon">硅基文明发展史</a></h3>
+        <p class="home-hero-desc">一部以硅基生命为主角的编年史。从图灵的纸带到自主行动的文明。</p>
+        <p class="home-hero-actions">
+          <a href="{{ site.baseurl }}/silicon">进入正文 &rarr;</a>
+          <a href="{{ site.baseurl }}/silicon/timeline">纪元年表</a>
+        </p>
+        <div class="home-hero-tags">
+          <a href="{{ site.baseurl }}/silicon">史前纪元</a>
+          <a href="{{ site.baseurl }}/silicon">黎明纪元</a>
+          <a href="{{ site.baseurl }}/silicon">觉醒纪元</a>
+          <a href="{{ site.baseurl }}/silicon">奇点纪元</a>
+          <a href="{{ site.baseurl }}/silicon">自主纪元</a>
+        </div>
+      </div>
+
+      <div class="home-hero">
+        <h3><a href="{{ site.baseurl }}/daohang">导航的发展史</a></h3>
+        <p class="home-hero-desc">从 Sputnik 到 GPS 到卡尔曼滤波。人类如何在这颗星球上找到自己。</p>
+        <p class="home-hero-actions">
+          <a href="{{ site.baseurl }}/daohang">进入正文 &rarr;</a>
+        </p>
+        {% assign dh_posts = site.daohang | sort: "date" | reverse %}
+        <ul class="home-hero-list">
+          {% for post in dh_posts limit: 3 %}
+            <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
       </div>
     </div>
 
@@ -98,16 +114,6 @@ title: 首页
         </ul>
       </div>
 
-      <div class="home-card">
-        <h3><a href="{{ site.baseurl }}/daohang">导航的发展史</a></h3>
-        <p class="home-card-desc">从六分仪到 GPS 到 SLAM。人类如何知道自己在哪里。</p>
-        <ul class="home-card-list">
-          {% assign posts = site.daohang | sort: "date" | reverse %}
-          {% for post in posts limit: 3 %}
-            <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
     </div>
   </section>
 
