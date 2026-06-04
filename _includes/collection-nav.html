@@ -1,84 +1,21 @@
-<!-- 侧边目录按钮 -->
-<button class="side-toc-btn" id="side-toc-btn" title="站点地图">目录</button>
+{% assign cur_col = site[page.collection] | sort: "date" %}
+{% assign pos = 0 %}
+{% assign prev = false %}
+{% assign next = false %}
+{% assign found = false %}
+{% for p in cur_col %}
+  {% if found == false and p.url == page.url %}
+    {% assign found = true %}
+    {% assign pos = forloop.index %}
+  {% endif %}
+  {% if found == false %}{% assign prev = p %}{% endif %}
+  {% if found == true and p.url != page.url %}
+    {% assign next = p %}
+    {% assign found = "done" %}
+  {% endif %}
+{% endfor %}
+{% assign total = cur_col | size %}
 
-<!-- 侧边目录面板 -->
-<div class="side-toc-overlay" id="side-toc-overlay"></div>
-<aside class="side-toc-panel" id="side-toc-panel">
-  <h3>站点地图</h3>
-
-  <!-- 当前栏目快捷导航 -->
-  {% assign cur_col = site[page.collection] | sort: "date" %}
-  {% assign pos = 0 %}
-  {% assign prev = false %}
-  {% assign next = false %}
-  {% assign found = false %}
-  {% for p in cur_col %}
-    {% if found == false and p.url == page.url %}
-      {% assign found = true %}
-      {% assign pos = forloop.index %}
-    {% endif %}
-    {% if found == false %}{% assign prev = p %}{% endif %}
-    {% if found == true and p.url != page.url %}
-      {% assign next = p %}
-      {% assign found = "done" %}
-    {% endif %}
-  {% endfor %}
-  {% assign total = cur_col | size %}
-
-  <nav class="side-toc-nav">
-    {% if prev %}
-      <a href="{{ site.baseurl }}{{ prev.url }}">&larr; 上一篇</a>
-    {% else %}<span></span>{% endif %}
-    <span>{{ pos }} / {{ total }}</span>
-    {% if next != false %}
-      <a href="{{ site.baseurl }}{{ next.url }}">下一篇 &rarr;</a>
-    {% else %}<span></span>{% endif %}
-  </nav>
-
-  <!-- 全部栏目文章索引 -->
-  {% assign cols = "silicon,daohang,talk,xinzhi,threebody,fangfalun,notes" | split: "," %}
-  {% assign col_names = "硅基文明发展史,导航的发展史,与优秀的人同行,新质生产力,三体,方法论,技术笔记" | split: "," %}
-  {% for c in cols %}
-    {% assign idx = forloop.index0 %}
-    {% assign cname = col_names[idx] %}
-    {% assign articles = site[c] | sort: "date" %}
-    {% if articles.size > 0 %}
-      <details class="side-toc-col{% if c == page.collection %} cur{% endif %}"{% if c == page.collection %} open{% endif %}>
-        <summary><a href="{{ site.baseurl }}/{{ c }}">{{ cname }}</a> <span>{{ articles.size }}</span></summary>
-        <ul>
-          {% for p in articles %}
-            <li>
-              {% if p.url == page.url %}
-                <strong>{{ p.title }}</strong>
-              {% else %}
-                <a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      </details>
-    {% endif %}
-  {% endfor %}
-</aside>
-
-<script>
-(function() {
-  var btn = document.getElementById('side-toc-btn');
-  var panel = document.getElementById('side-toc-panel');
-  var overlay = document.getElementById('side-toc-overlay');
-  if (!btn || !panel) return;
-  btn.addEventListener('click', function() {
-    panel.classList.toggle('open');
-    overlay.classList.toggle('open');
-  });
-  overlay.addEventListener('click', function() {
-    panel.classList.remove('open');
-    overlay.classList.remove('open');
-  });
-})();
-</script>
-
-<!-- 底部上一篇/下一篇 -->
 {% if prev or next != false %}
 <nav class="post-nav">
   {% if prev %}

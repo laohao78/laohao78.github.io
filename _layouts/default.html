@@ -32,7 +32,18 @@
 
           <nav>
             <a href="{{ site.baseurl }}/">首页</a>
-            <a href="{{ site.baseurl }}/writing">专栏</a>
+            <div class="nav-dropdown">
+              <a href="{{ site.baseurl }}/writing">专栏</a>
+              <div class="nav-dropdown-menu">
+                <a href="{{ site.baseurl }}/silicon">硅基文明发展史</a>
+                <a href="{{ site.baseurl }}/daohang">导航的发展史</a>
+                <a href="{{ site.baseurl }}/talk">与优秀的人同行</a>
+                <a href="{{ site.baseurl }}/xinzhi">新质生产力</a>
+                <a href="{{ site.baseurl }}/threebody">三体</a>
+                <a href="{{ site.baseurl }}/fangfalun">方法论</a>
+                <a href="{{ site.baseurl }}/notes">技术笔记</a>
+              </div>
+            </div>
             <a href="{{ site.baseurl }}/projects">项目</a>
             <a href="{{ site.baseurl }}/about">关于</a>
             {% include theme-toggle.html %}
@@ -44,6 +55,8 @@
     <div id="main" role="main" class="container">
       {{ content }}
     </div>
+
+    {% include sidebar.html %}
 
     <div class="wrapper-footer">
       <div class="container">
