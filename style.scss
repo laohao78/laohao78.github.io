@@ -237,7 +237,7 @@ img {
   background: var(--bg);
   border-left: 1px solid var(--border-subtle);
   z-index: 400;
-  padding: 40px 28px;
+  padding: 90px 28px 40px;
   overflow-y: auto;
   transition: right 0.25s ease;
   h3 {
@@ -320,6 +320,41 @@ img {
     color: var(--accent);
     font-weight: 700;
   }
+}
+
+// 文章左侧内容导航
+.article-toc {
+  position: fixed;
+  left: max(16px, calc((100vw - 820px) / 2 - 200px));
+  top: 120px;
+  width: 170px;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+  z-index: 50;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 2px solid var(--border-subtle);
+  }
+  li {
+    padding: 0;
+  }
+  a {
+    display: block;
+    padding: 5px 12px;
+    font-family: $font-heading;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color 0.15s;
+    &:hover { color: var(--accent); }
+    &.active { color: var(--bold-warm); font-weight: 600; }
+  }
+  @include tablet { display: none; }
 }
 
 .insight {

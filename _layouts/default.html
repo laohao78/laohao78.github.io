@@ -56,6 +56,7 @@
       {{ content }}
     </div>
 
+    <nav class="article-toc" id="article-toc"></nav>
     {% include sidebar.html %}
 
     <div class="wrapper-footer">
@@ -83,6 +84,45 @@
         num.textContent = '§ ' + (i + 1) + '/' + total;
         hs[i].insertBefore(num, hs[i].firstChild);
       }
+    })();
+    // 文章左侧内容导航
+    (function() {
+      var post = document.querySelector('article.post');
+      if (!post) return;
+      var hs = post.querySelectorAll('.entry h2, .entry h3');
+      if (hs.length < 2) return;
+      var toc = document.getElementById('article-toc');
+      if (!toc) return;
+      var ul = document.createElement('ul');
+      var items = [];
+      hs.forEach(function(h, i) {
+        var id = 's' + i;
+        h.id = id;
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = '#' + id;
+        a.textContent = h.textContent.replace(/^§ \d+\/\d+ /, '');
+        a.title = a.textContent;
+        if (h.tagName === 'H3') li.style.paddingLeft = '12px';
+        li.appendChild(a);
+        ul.appendChild(li);
+        items.push({ el: h, link: a });
+      });
+      toc.appendChild(ul);
+
+      // scroll spy
+      function update() {
+        var cur = items[0];
+        for (var i = items.length - 1; i >= 0; i--) {
+          if (items[i].el.getBoundingClientRect().top < 120) {
+            cur = items[i]; break;
+          }
+        }
+        items.forEach(function(it) { it.link.classList.remove('active'); });
+        cur.link.classList.add('active');
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      update();
     })();
     </script>
   </body>
