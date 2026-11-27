@@ -5,7 +5,7 @@
 
     {% include meta.html %}
 
-    <script>(function(){try{var t=localStorage.getItem('theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#121417');}}catch(e){}})();</script>
+    <script>(function(){try{var t=localStorage.getItem('theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#14110d');}}catch(e){}})();</script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +62,7 @@
     <div class="wrapper-footer">
       <div class="container">
         <footer class="footer">
-          <p class="footer-declaration">laohao78</p>
+          <p class="footer-declaration">{{ site.name }}</p>
           {% include svg-icons.html %}
         </footer>
       </div>
@@ -94,6 +94,10 @@
       var toc = document.getElementById('article-toc');
       if (!toc) return;
       var ul = document.createElement('ul');
+      var tocTitle = document.createElement('div');
+      tocTitle.className = 'toc-title';
+      tocTitle.textContent = '本文目录';
+      toc.appendChild(tocTitle);
       var items = [];
       hs.forEach(function(h, i) {
         var id = 's' + i;
@@ -103,7 +107,7 @@
         a.href = '#' + id;
         a.textContent = h.textContent.replace(/^§ \d+\/\d+ /, '');
         a.title = a.textContent;
-        if (h.tagName === 'H3') li.style.paddingRight = '12px';
+        if (h.tagName === 'H3') li.style.paddingLeft = '12px';
         li.appendChild(a);
         ul.appendChild(li);
         items.push({ el: h, link: a });

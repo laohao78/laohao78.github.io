@@ -9,7 +9,7 @@
       document.documentElement.removeAttribute('data-theme');
     }
     var m = document.querySelector('meta[name="theme-color"]');
-    if (m) m.setAttribute('content', theme === 'dark' ? '#121417' : '#f7f5ef');
+    if (m) m.setAttribute('content', theme === 'dark' ? '#14110d' : '#f7f2e7');
     try { localStorage.setItem('theme', theme); } catch (e) {}
   }
   btn.addEventListener('click', function() {
