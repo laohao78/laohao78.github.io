@@ -15,6 +15,8 @@
 html {
   font-size: 100%;
   scroll-behavior: smooth;
+  // 固定顶栏 60px + 呼吸空间，锚点跳转不再被顶栏遮挡
+  scroll-padding-top: 84px;
 }
 
 body {
@@ -1230,6 +1232,7 @@ pre {
   text-underline-offset: 2px;
 }
 .entry { font-size: 18px; line-height: 1.85; }
+.entry h2, .entry h3 { scroll-margin-top: 84px; }
 .entry p { margin: 1.05em 0; }
 blockquote { background: var(--bg-secondary); }
 // 深色代码块内部隔离，避免被浅色 pre/code 覆盖
