@@ -84,7 +84,7 @@
         hs[i].insertBefore(num, hs[i].firstChild);
       }
     })();
-    // 文章左侧内容导航
+    // 文章右侧小节导航
     (function() {
       var post = document.querySelector('article.post');
       if (!post) return;
@@ -102,7 +102,7 @@
         a.href = '#' + id;
         a.textContent = h.textContent.replace(/^§ \d+\/\d+ /, '');
         a.title = a.textContent;
-        if (h.tagName === 'H3') li.style.paddingLeft = '12px';
+        if (h.tagName === 'H3') li.style.paddingRight = '12px';
         li.appendChild(a);
         ul.appendChild(li);
         items.push({ el: h, link: a });

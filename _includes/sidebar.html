@@ -1,77 +1,69 @@
 {% if page.collection %}
-<button class="side-toc-btn" id="side-toc-btn" title="站点地图">目录</button>
-<div class="side-toc-overlay" id="side-toc-overlay"></div>
+<button class="article-nav-btn" id="article-nav-btn" title="目录">目录</button>
+<div class="article-nav-overlay" id="article-nav-overlay"></div>
 
-<aside class="side-toc-panel" id="side-toc-panel">
-  <h3>站点地图</h3>
-
-  {% assign cur_col = site[page.collection] | sort: "date" %}
-  {% assign pos = 0 %}
-  {% assign prev = false %}
-  {% assign next = false %}
-  {% assign found = false %}
-  {% for p in cur_col %}
-    {% if found == false and p.url == page.url %}
-      {% assign found = true %}
-      {% assign pos = forloop.index %}
-    {% endif %}
-    {% if found == false %}{% assign prev = p %}{% endif %}
-    {% if found == true and p.url != page.url %}
-      {% assign next = p %}
-      {% assign found = "done" %}
-    {% endif %}
-  {% endfor %}
-  {% assign total = cur_col | size %}
-
-  <nav class="side-toc-nav">
-    {% if prev %}
-      <a href="{{ site.baseurl }}{{ prev.url }}">&larr; 上一篇</a>
-    {% else %}<span></span>{% endif %}
-    <span>{{ pos }} / {{ total }}</span>
-    {% if next != false %}
-      <a href="{{ site.baseurl }}{{ next.url }}">下一篇 &rarr;</a>
-    {% else %}<span></span>{% endif %}
-  </nav>
-
+<aside class="article-nav" id="article-nav">
   {% assign col_labels = "silicon,navigation,interviews,productivity,threebody,methodology,notes" | split: "," %}
-  {% assign col_urls   = "silicon,navigation,interviews,productivity,threebody,methodology,notes" | split: "," %}
   {% assign col_names  = "硅基文明发展史,导航的发展史,与优秀的人同行,新质生产力,三体,方法论,技术笔记" | split: "," %}
+  {% assign cur_name = "" %}
   {% for c in col_labels %}
     {% assign idx = forloop.index0 %}
-    {% assign curl = col_urls[idx] %}
-    {% assign cname = col_names[idx] %}
-    {% assign articles = site[c] | sort: "date" %}
-    {% if articles.size > 0 %}
-      <details class="side-toc-col{% if c == page.collection %} cur{% endif %}"{% if c == page.collection %} open{% endif %}>
-        <summary><a href="{{ site.baseurl }}/{{ curl }}">{{ cname }}</a> <span>{{ articles.size }}</span></summary>
+    {% if c == page.collection %}{% assign cur_name = col_names[idx] %}{% endif %}
+  {% endfor %}
+
+  <div class="nav-col-title">
+    <a href="{{ site.baseurl }}/{{ page.collection }}">{{ cur_name }}</a>
+  </div>
+
+  {% if page.collection == "silicon" or page.collection == "navigation" %}
+    {% assign cur = site[page.collection] | sort: "date" %}
+  {% else %}
+    {% assign cur = site[page.collection] | sort: "date" | reverse %}
+  {% endif %}
+
+  {% if page.collection == "silicon" %}
+    {% assign groups = cur | group_by: "era" %}
+    {% for g in groups %}
+      <div class="nav-era">
+        <div class="nav-era-title">{{ g.name }}</div>
         <ul>
-          {% for p in articles %}
-            <li>
-              {% if p.url == page.url %}
-                <strong>{{ p.title }}</strong>
-              {% else %}
-                <a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
-              {% endif %}
-            </li>
+          {% for p in g.items %}
+            <li>{% if p.url == page.url %}<strong>{{ p.title }}</strong>{% else %}<a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>{% endif %}</li>
           {% endfor %}
         </ul>
-      </details>
-    {% endif %}
-  {% endfor %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <ul class="nav-flat">
+      {% for p in cur %}
+        <li>{% if p.url == page.url %}<strong>{{ p.title }}</strong>{% else %}<a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <details class="nav-all">
+    <summary>全部栏目</summary>
+    <ul>
+      {% for c in col_labels %}
+        {% assign idx = forloop.index0 %}
+        <li{% if c == page.collection %} class="cur"{% endif %}><a href="{{ site.baseurl }}/{{ c }}">{{ col_names[idx] }}</a></li>
+      {% endfor %}
+    </ul>
+  </details>
 </aside>
 
 <script>
 (function() {
-  var btn = document.getElementById('side-toc-btn');
-  var panel = document.getElementById('side-toc-panel');
-  var overlay = document.getElementById('side-toc-overlay');
-  if (!btn || !panel) return;
+  var btn = document.getElementById('article-nav-btn');
+  var nav = document.getElementById('article-nav');
+  var overlay = document.getElementById('article-nav-overlay');
+  if (!btn || !nav) return;
   btn.addEventListener('click', function() {
-    panel.classList.toggle('open');
-    overlay.classList.toggle('open');
+    nav.classList.toggle('open');
+    if (overlay) overlay.classList.toggle('open');
   });
-  overlay.addEventListener('click', function() {
-    panel.classList.remove('open');
+  if (overlay) overlay.addEventListener('click', function() {
+    nav.classList.remove('open');
     overlay.classList.remove('open');
   });
 })();
