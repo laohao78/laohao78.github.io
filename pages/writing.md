@@ -3,6 +3,7 @@ layout: page
 title: 专栏
 permalink: /writing/
 wide: true
+description: "长期写作的专栏：硅基文明发展史、导航的发展史、AI 观察、技术笔记与访谈。"
 ---
 
 <div class="writing-page">

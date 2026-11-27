@@ -1546,6 +1546,16 @@ pre {
 }
 
 // Projects page
+.projects-intro {
+  max-width: 640px;
+  margin: 0 0 28px 0;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
 .project-card {
   h2 {
     font-size: 28px;

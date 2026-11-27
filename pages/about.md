@@ -2,6 +2,7 @@
 layout: page
 title: 关于
 permalink: /about/
+description: "唐昊，武汉理工大学在读，专注 ROS、机械臂控制、自主导航与具身智能。"
 ---
 
 唐昊，武理工在读，机器人爱好者。

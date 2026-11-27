@@ -2,7 +2,10 @@
 layout: page
 title: 项目
 permalink: /projects/
+description: "6 个机器人落地项目：强化学习、导航与 SLAM、机械臂视觉抓取、具身 AI。"
 ---
+
+<p class="projects-intro">6 个落地项目，覆盖强化学习、导航与 SLAM、机械臂视觉抓取、具身 AI。每个项目都附可运行的代码与说明。</p>
 
 <div class="project-card">
   <h2>Lite3 Handstand RL</h2>
