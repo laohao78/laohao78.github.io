@@ -1206,10 +1206,28 @@ pre {
 
 // ===== 明亮编辑风 · 精修 =====
 .entry a {
+  text-decoration: none;
+}
+// 只有关键跳转常驻蓝色下划线
+.read-more,
+.post-nav-prev,
+.post-nav-next,
+.home-section-more {
+  color: var(--link);
   text-decoration: underline;
-  text-decoration-color: var(--border-glow);
   text-underline-offset: 3px;
-  &:hover { text-decoration-color: var(--accent); }
+  text-decoration-thickness: 1px;
+}
+.read-more:hover,
+.post-nav-prev:hover,
+.post-nav-next:hover,
+.home-section-more:hover {
+  color: var(--link);
+}
+.article-toc a.active {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .entry { font-size: 18px; line-height: 1.85; }
 .entry p { margin: 1.05em 0; }
