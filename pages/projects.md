@@ -5,20 +5,9 @@ permalink: /projects/
 description: "唐昊的机器人项目：融合定位、SLAM、导航规划、机械臂与具身 AI。"
 ---
 
-<p class="projects-intro">13 个公开项目，覆盖融合定位、SLAM、导航与规划、机械臂视觉抓取、四足 RL 与具身 AI。按最近更新排序。</p>
+<p class="projects-intro">12 个公开项目，覆盖多传感器 SLAM、导航与规划、机械臂视觉抓取、四足 RL 与具身 AI。按最近更新排序。</p>
 
 <div class="card-grid card-grid-2">
-  <a class="card" href="https://github.com/laohao78/maplesslm-retest">
-    <span class="card-title">maplesslm-retest</span>
-    <span class="card-desc">行车融合定位学习资料，以及 SenseAuto maplesslm 的本地运行与回归复测工作区。</span>
-    <div class="project-meta">
-      <span class="project-tag">融合定位</span>
-      <span class="project-tag">maplesslm</span>
-      <span class="project-tag">回归复测</span>
-    </div>
-    <span class="card-meta">源码 &rarr;</span>
-  </a>
-
   <a class="card" href="https://github.com/laohao78/CyperStereo-M60">
     <span class="card-title">CyperStereo-M60</span>
     <span class="card-desc">Cyperstereo M60 双目鱼眼相机：SDK 采集、Kalibr 标定、ORB_SLAM3 建图与精度评估。</span>
