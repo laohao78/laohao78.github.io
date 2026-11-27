@@ -41,7 +41,7 @@ wide: true
     </p>
   </div>
   <ul class="writing-hero-list">
-    {% assign dh_posts = site.daohang | sort: "date" %}
+    {% assign dh_posts = site.navigation | sort: "date" %}
     {% for post in dh_posts limit: 5 %}
       <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
@@ -53,7 +53,7 @@ wide: true
     <h3><a href="{{ site.baseurl }}/xinzhi">新质生产力</a></h3>
     <p class="writing-card-desc">AI 正在重写规则。转型中的观察、判断与对策。</p>
     <ul>
-      {% assign articles = site.xinzhi | sort: "date" | reverse %}
+      {% assign articles = site.productivity | sort: "date" | reverse %}
       {% for post in articles %}
         <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
       {% endfor %}
@@ -86,7 +86,7 @@ wide: true
     <h3><a href="{{ site.baseurl }}/fangfalun">方法论</a></h3>
     <p class="writing-card-desc">思维方式、工作法则。从第一性原理到执行纪律。</p>
     <ul>
-      {% assign methods = site.fangfalun | sort: "date" | reverse %}
+      {% assign methods = site.methodology | sort: "date" | reverse %}
       {% for post in methods %}
         <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
       {% endfor %}
@@ -97,7 +97,7 @@ wide: true
     <h3><a href="{{ site.baseurl }}/talk">与优秀的人同行</a></h3>
     <p class="writing-card-desc">对话访谈。那些在机器人、AI、SLAM 领域做出好东西的人。</p>
     <ul>
-      {% assign talks = site.talk | sort: "date" | reverse %}
+      {% assign talks = site.interviews | sort: "date" | reverse %}
       {% for post in talks %}
         <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
       {% endfor %}

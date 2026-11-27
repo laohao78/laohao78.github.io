@@ -48,7 +48,7 @@ title: 首页
         <p class="home-hero-actions">
           <a href="{{ site.baseurl }}/daohang">进入正文 &rarr;</a>
         </p>
-        {% assign dh_posts = site.daohang | sort: "date" | reverse %}
+        {% assign dh_posts = site.navigation | sort: "date" | reverse %}
         <ul class="home-hero-list">
           {% for post in dh_posts limit: 3 %}
             <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
@@ -63,7 +63,7 @@ title: 首页
         <h3><a href="{{ site.baseurl }}/xinzhi">新质生产力</a></h3>
         <p class="home-card-desc">AI 正在重写规则。观察、判断与对策。</p>
         <ul class="home-card-list">
-          {% assign articles = site.xinzhi | sort: "date" | reverse %}
+          {% assign articles = site.productivity | sort: "date" | reverse %}
           {% for post in articles limit: 3 %}
             <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
           {% endfor %}
@@ -96,7 +96,7 @@ title: 首页
         <h3><a href="{{ site.baseurl }}/fangfalun">方法论</a></h3>
         <p class="home-card-desc">思维方式、工作法则。从第一性原理到执行纪律。</p>
         <ul class="home-card-list">
-          {% assign methods = site.fangfalun | sort: "date" | reverse %}
+          {% assign methods = site.methodology | sort: "date" | reverse %}
           {% for post in methods limit: 3 %}
             <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
           {% endfor %}
@@ -107,7 +107,7 @@ title: 首页
         <h3><a href="{{ site.baseurl }}/talk">与优秀的人同行</a></h3>
         <p class="home-card-desc">对话访谈。那些在机器人、AI、SLAM 领域做出好东西的人。</p>
         <ul class="home-card-list">
-          {% assign talks = site.talk | sort: "date" | reverse %}
+          {% assign talks = site.interviews | sort: "date" | reverse %}
           {% for post in talks limit: 3 %}
             <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
           {% endfor %}

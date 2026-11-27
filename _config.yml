@@ -3,6 +3,7 @@
 #
 
 name: laohao78
+title: "唐昊 · 机器人 · 具身智能"
 description: ROS · 机器人 · 具身智能 · 专栏
 
 avatar: /images/avatar.svg
@@ -33,25 +34,38 @@ kramdown:
 sass:
   style: :expanded
 
+# 所有 collection 源目录统一放在 collections/ 下，保持仓库根目录整洁。
+# 注意：设置 collections_dir 后，_posts 也必须在 collections/ 内。
+collections_dir: collections
+
+# 每个 collection 用 permalink 冻结旧的 URL 前缀，改名不影响已发布地址与外部链接。
 collections:
   silicon:
     output: true
-  xinzhi:
+    permalink: /silicon/:path/
+  navigation:
     output: true
+    permalink: /daohang/:path/
+  interviews:
+    output: true
+    permalink: /talk/:path/
+  productivity:
+    output: true
+    permalink: /xinzhi/:path/
   threebody:
     output: true
+    permalink: /threebody/:path/
+  methodology:
+    output: true
+    permalink: /fangfalun/:path/
   notes:
     output: true
-  fangfalun:
-    output: true
-  talk:
-    output: true
-  daohang:
-    output: true
+    permalink: /notes/:path/
 
 plugins:
   - jekyll-sitemap
-  - jekyll-feed
+# jekyll-feed 已移除：它无法把多个 collection 合并成一个 /feed.xml。
+# 现由仓库根目录的 feed.xml 自行生成统一订阅源。
 
 exclude:
   - Gemfile

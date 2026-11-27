@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }}</title>
+    <title>{% if page.url == "/" %}{{ site.title | default: site.name }}{% elsif page.title %}{{ page.title }} – {{ site.title | default: site.name }}{% else %}{{ site.title | default: site.name }}{% endif %}</title>
 
     {% include meta.html %}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
-
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <!-- 非阻塞字体加载：网络差或字体域名不可达时，立即用系统字体渲染首屏 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&family=Noto+Serif+SC:wght@400;600;700;900&display=swap"></noscript>
 
     <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/images/avatar.svg">
     {% include theme-vars.html %}
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.baseurl }}/feed.xml" />
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title | default: site.name }}" href="{{ site.baseurl }}/feed.xml" />
   </head>
 
   <body>
+    <script>(function(){try{if(localStorage.getItem('theme')==='light'){document.body.classList.add('theme-light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#f5f7fa');}}catch(e){}})();</script>
     <div class="wrapper-masthead">
       <div class="container">
         <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
+          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" alt="{{ site.name }}" /></a>
 
           <div class="site-info">
             <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>

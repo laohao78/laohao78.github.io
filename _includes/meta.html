@@ -1,18 +1,35 @@
     <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name="theme-color" content="#0a0e14">
 
-    {% if page.excerpt %}
-    <meta name="description" content="{{ page.excerpt| strip_html }}" />
-    <meta property="og:description" content="{{ page.excerpt| strip_html }}" />
+    {% if page.url == "/" %}
+      {% assign meta_title = site.title | default: site.name %}
     {% else %}
-    <meta name="description" content="{{ site.description }}">
-    <meta property="og:description" content="{{ site.description }}" />
+      {% assign meta_title = page.title | default: site.title | default: site.name %}
     {% endif %}
+    {% assign meta_desc = page.excerpt | default: page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 %}
+
+    <meta name="description" content="{{ meta_desc | escape }}" />
     <meta name="author" content="{{ site.name }}" />
 
-    {% if page.title %}
-    <meta property="og:title" content="{{ page.title }}" />
-    <meta property="twitter:title" content="{{ page.title }}" />
+    <link rel="canonical" href="{{ page.url | absolute_url }}" />
+
+    <meta property="og:type" content="{% if page.collection %}article{% else %}website{% endif %}" />
+    <meta property="og:site_name" content="{{ site.title | default: site.name }}" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:title" content="{{ meta_title | escape }}" />
+    <meta property="og:description" content="{{ meta_desc | escape }}" />
+    <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    {% assign og_image = page.image | default: "/images/og-default.png" %}
+    <meta property="og:image" content="{{ og_image | absolute_url }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ meta_title | escape }}" />
+    <meta name="twitter:description" content="{{ meta_desc | escape }}" />
+    <meta name="twitter:image" content="{{ og_image | absolute_url }}" />
+    {% if page.collection and page.date %}
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
     {% endif %}

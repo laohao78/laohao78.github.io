@@ -33,15 +33,18 @@
     {% else %}<span></span>{% endif %}
   </nav>
 
-  {% assign cols = "silicon,daohang,talk,xinzhi,threebody,fangfalun,notes" | split: "," %}
-  {% assign col_names = "硅基文明发展史,导航的发展史,与优秀的人同行,新质生产力,三体,方法论,技术笔记" | split: "," %}
-  {% for c in cols %}
+  {%- comment -%} collection 标签已英文化，但 URL 前缀保持不变，故分开维护 {%- endcomment -%}
+  {% assign col_labels = "silicon,navigation,interviews,productivity,threebody,methodology,notes" | split: "," %}
+  {% assign col_urls   = "silicon,daohang,talk,xinzhi,threebody,fangfalun,notes" | split: "," %}
+  {% assign col_names  = "硅基文明发展史,导航的发展史,与优秀的人同行,新质生产力,三体,方法论,技术笔记" | split: "," %}
+  {% for c in col_labels %}
     {% assign idx = forloop.index0 %}
+    {% assign curl = col_urls[idx] %}
     {% assign cname = col_names[idx] %}
     {% assign articles = site[c] | sort: "date" %}
     {% if articles.size > 0 %}
       <details class="side-toc-col{% if c == page.collection %} cur{% endif %}"{% if c == page.collection %} open{% endif %}>
-        <summary><a href="{{ site.baseurl }}/{{ c }}">{{ cname }}</a> <span>{{ articles.size }}</span></summary>
+        <summary><a href="{{ site.baseurl }}/{{ curl }}">{{ cname }}</a> <span>{{ articles.size }}</span></summary>
         <ul>
           {% for p in articles %}
             <li>
