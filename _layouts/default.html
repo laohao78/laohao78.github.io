@@ -18,7 +18,6 @@
   </head>
 
   <body>
-    <script>(function(){try{if(localStorage.getItem('theme')==='light'){document.body.classList.add('theme-light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#f5f7fa');}}catch(e){}})();</script>
     <div class="wrapper-masthead">
       <div class="container">
         <header class="masthead clearfix">
@@ -45,7 +44,6 @@
             </div>
             <a href="{{ site.baseurl }}/projects">项目</a>
             <a href="{{ site.baseurl }}/about">关于</a>
-            {% include theme-toggle.html %}
           </nav>
         </header>
       </div>
@@ -68,7 +66,6 @@
     </div>
 
     {% include analytics.html %}
-    {% include theme-script.html %}
     <script>
     // 单篇文章内 h2 小标题自动编号（访谈页面已单独处理）
     (function() {

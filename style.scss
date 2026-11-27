@@ -2,7 +2,7 @@
 ---
 
 //
-// 硅基文明的发展史 · 星空史书
+// 硅基文明的发展史 · 明亮编辑风
 //
 
 @import "reset";
@@ -24,28 +24,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  // Subtle starfield noise overlay
-  &::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image:
-      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.1), transparent),
-      radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.07), transparent),
-      radial-gradient(1px 1px at 50% 10%, rgba(92,207,230,0.10), transparent),
-      radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.05), transparent),
-      radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.08), transparent),
-      radial-gradient(1px 1px at 15% 85%, rgba(92,207,230,0.08), transparent),
-      radial-gradient(1px 1px at 85% 15%, rgba(255,255,255,0.06), transparent),
-      radial-gradient(1px 1px at 45% 45%, rgba(255,255,255,0.07), transparent),
-      radial-gradient(1px 1px at 25% 35%, rgba(92,207,230,0.07), transparent),
-      radial-gradient(1px 1px at 65% 75%, rgba(255,255,255,0.05), transparent);
-    pointer-events: none;
-    z-index: 0;
-  }
 }
 
 .container {
@@ -95,10 +73,9 @@ p {
 a {
   color: var(--accent);
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
   &:hover, &:active {
-    color: lighten($accent, 15%);
-    text-shadow: 0 0 8px $accent-glow;
+    color: var(--accent-dim);
   }
 }
 
@@ -399,7 +376,7 @@ blockquote {
 ::-webkit-scrollbar-thumb {
   background: var(--border-subtle);
   border-radius: 3px;
-  &:hover { background: rgba(92,207,230,0.30); }
+  &:hover { background: var(--border-glow); }
 }
 
 /*********************/
@@ -467,7 +444,6 @@ blockquote {
     color: var(--text);
     &:hover {
       color: var(--accent);
-      text-shadow: 0 0 12px $accent-glow;
     }
   }
 
@@ -497,7 +473,6 @@ nav {
 
     &:hover {
       color: var(--accent);
-      text-shadow: 0 0 8px $accent-glow;
     }
   }
 
@@ -542,7 +517,6 @@ nav {
     &:hover {
       color: var(--accent);
       background: var(--accent-bg);
-      text-shadow: none;
     }
   }
 }
@@ -626,7 +600,7 @@ nav {
     height: 9px;
     background: var(--accent);
     border-radius: 50%;
-    box-shadow: 0 0 8px $accent-glow, 0 0 20px $accent-glow;
+    box-shadow: none;
     z-index: 2;
 
     @include mobile {
@@ -646,7 +620,6 @@ nav {
       color: var(--text);
       &:hover {
         color: var(--accent);
-        text-shadow: 0 0 10px $accent-glow;
       }
     }
 
@@ -697,7 +670,6 @@ nav {
 
   &:hover {
     color: lighten($accent, 15%);
-    text-shadow: 0 0 10px $accent-glow;
     transform: translateX(4px);
   }
 }
@@ -737,19 +709,19 @@ article.post, article.page {
   }
 }
 
-// Code / highlights — 终端绿风格
+// Code
 code {
   font-family: $font-mono;
-  font-size: 14px;
-  background: rgba(0, 255, 136, 0.08);
-  color: $green-terminal;
+  font-size: 0.88em;
+  background: #f0ece3;
+  color: #8a3b1f;
   padding: 2px 6px;
   border-radius: 3px;
-  border: 1px solid rgba(0, 255, 136, 0.12);
+  border: 1px solid rgba(138, 59, 31, 0.14);
 }
 
 pre {
-  background: var(--bg);
+  background: #f0ece3;
   padding: 16px 20px;
   border: 1px solid var(--border-subtle);
   border-radius: 6px;
@@ -811,9 +783,9 @@ pre {
   .svg-icon {
     width: 22px;
     height: 22px;
-    opacity: 0.4;
+    opacity: 0.45;
     transition: opacity 0.2s;
-    filter: invert(0.7);
+    filter: grayscale(1);
 
     &:hover {
       opacity: 0.8;
@@ -862,7 +834,7 @@ pre {
       height: 12px;
       background: $gold;
       border-radius: 50%;
-      box-shadow: 0 0 12px rgba($gold, 0.4);
+      box-shadow: none;
 
       @include mobile {
         left: -32px;
@@ -1006,7 +978,6 @@ pre {
       border-color: var(--border-glow);
       color: var(--accent);
       background: var(--accent-bg);
-      text-shadow: none;
     }
   }
 }
@@ -1363,3 +1334,21 @@ pre {
 
 // Syntax highlighting override for dark theme
 @import "highlights";
+
+
+// ===== 明亮编辑风 · 精修 =====
+.entry a {
+  text-decoration: underline;
+  text-decoration-color: rgba(47, 75, 143, 0.28);
+  text-underline-offset: 3px;
+  &:hover { text-decoration-color: var(--accent); }
+}
+.entry { font-size: 18px; line-height: 1.85; }
+.entry p { margin: 1.05em 0; }
+blockquote { background: #f1ede3; }
+// 深色代码块内部隔离，避免被浅色 pre/code 覆盖
+.highlight { color: #e9e4da; }
+.highlight pre { background: transparent; }
+.highlight code { background: none; border: none; color: inherit; padding: 0; }
+pre code { color: inherit; }
+hr { border: none; border-top: 1px solid var(--border-subtle); margin: 2.4em 0; }
