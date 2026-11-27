@@ -24,21 +24,17 @@ title: 首页
       <a href="{{ site.baseurl }}/writing" class="home-section-more">全部专栏 &rarr;</a>
     </div>
 
-    <div class="home-featured">
-      <a class="home-feature" href="{{ site.baseurl }}/silicon">
-        <span class="hf-text">
-          <span class="hf-name">硅基文明发展史</span>
-          <span class="hf-desc">一部以硅基生命为主角的编年史。从图灵的纸带到自主行动的文明。</span>
-        </span>
-        <span class="hf-arrow">&rarr;</span>
+    <div class="card-grid">
+      {%- for c in site.data.collections limit: 3 %}
+      {%- assign label = c[0] %}
+      {%- assign meta = c[1] %}
+      <a class="card" href="{{ site.baseurl }}/{{ label }}">
+        <span class="card-index">0{{ forloop.index }}</span>
+        <span class="card-title">{{ meta.name }}</span>
+        <span class="card-desc">{{ meta.desc }}</span>
+        <span class="card-meta">{{ site[label].size }} 篇 · 阅读 &rarr;</span>
       </a>
-      <a class="home-feature" href="{{ site.baseurl }}/navigation">
-        <span class="hf-text">
-          <span class="hf-name">导航的发展史</span>
-          <span class="hf-desc">从 Sputnik 到 GPS 到卡尔曼滤波。人类如何在这颗星球上找到自己。</span>
-        </span>
-        <span class="hf-arrow">&rarr;</span>
-      </a>
+      {%- endfor %}
     </div>
   </section>
 

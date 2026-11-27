@@ -13,19 +13,17 @@ description: "长期写作的专栏：硅基文明发展史、导航的发展史
     <p>长期写作：一条主线讲硅基文明，一组侧栏记录 AI、机器人、方法论和对话。</p>
   </section>
 
-  <ul class="writing-list">
+  <div class="card-grid">
     {%- for c in site.data.collections %}
     {%- assign label = c[0] %}
     {%- assign meta = c[1] %}
     {%- assign posts = site[label] %}
-    <li>
-      <a href="{{ site.baseurl }}/{{ label }}">
-        <span class="wl-name">{{ meta.name }}</span>
-        <span class="wl-count">{{ posts.size }} 篇</span>
-        <span class="wl-arrow">&rarr;</span>
-        <span class="wl-desc">{{ meta.desc }}</span>
-      </a>
-    </li>
+    <a class="card" href="{{ site.baseurl }}/{{ label }}">
+      <span class="card-index">0{{ forloop.index }}</span>
+      <span class="card-title">{{ meta.name }}</span>
+      <span class="card-desc">{{ meta.desc }}</span>
+      <span class="card-meta">{{ posts.size }} 篇 · 阅读 &rarr;</span>
+    </a>
     {%- endfor %}
-  </ul>
+  </div>
 </div>

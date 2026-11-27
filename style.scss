@@ -18,6 +18,7 @@ html {
 }
 
 body {
+  padding-top: 60px;
   background: var(--bg);
   font: 18px/1.75 $font-body;
   color: var(--text);
@@ -385,100 +386,76 @@ blockquote {
 
 // .masthead
 .wrapper-masthead {
-  margin-bottom: 60px;
-  border-bottom: 1px solid var(--border-subtle);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
   background: var(--bg-masthead);
   backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
+  border-bottom: 1px solid var(--border-subtle);
   z-index: 100;
 
-  @include mobile {
-    position: relative;
-  }
+  .container { max-width: 1120px; }
 }
 
 .masthead {
-  padding: 24px 0;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-
-  @include mobile {
-    flex-direction: column;
-    text-align: center;
-    gap: 12px;
-  }
+  gap: 20px;
+  padding: 0;
+  flex-wrap: nowrap;
 }
 
-.site-avatar {
-  width: 52px;
-  height: 52px;
-  margin-right: 16px;
-  flex-shrink: 0;
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  text-decoration: none;
 
   img {
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: block;
   }
-
-  @include mobile {
-    margin-right: 0;
-  }
-}
-
-.site-info {
-  flex: 1;
-}
-
-.site-name {
-  margin: 0;
-  font-family: $font-heading;
-  font-weight: 700;
-  font-size: 24px;
-  letter-spacing: 0.04em;
-
-  a {
+  .site-name {
+    font-family: $font-heading;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
     color: var(--text);
-    &:hover {
-      color: var(--accent);
-    }
+    white-space: nowrap;
   }
+  &:hover .site-name { color: var(--accent); }
 
   @include mobile {
-    font-size: 20px;
+    .site-name { display: none; }
   }
-}
-
-.site-description {
-  margin: 2px 0 0 0;
-  color: var(--text-muted);
-  font-size: 14px;
-  letter-spacing: 0.06em;
 }
 
 nav {
   font-family: $font-heading;
-  font-size: 15px;
-  letter-spacing: 0.06em;
+  font-size: 14px;
+  letter-spacing: 0.02em;
   display: flex;
   align-items: center;
+  gap: 2px;
 
   a {
-    margin-left: 28px;
+    margin-left: 22px;
     color: var(--text-secondary);
     white-space: nowrap;
 
-    &:hover {
-      color: var(--accent);
-    }
+    &:hover { color: var(--accent); }
   }
 
   @include mobile {
-    font-size: 14px;
-    a { margin: 0 12px; }
+    font-size: 13px;
+    a { margin-left: 14px; }
   }
 }
 .nav-dropdown {
@@ -523,18 +500,32 @@ nav {
 
 // Theme toggle
 #theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-left: 18px;
+  padding: 0;
   background: none;
   border: 1px solid var(--border-subtle);
-  border-radius: 50%;
-  width: 32px; height: 32px;
-  font-size: 15px;
-  cursor: pointer;
+  border-radius: 8px;
   color: var(--text-secondary);
-  margin-left: 20px;
-  padding: 0;
-  line-height: 1;
+  cursor: pointer;
   transition: all 0.2s;
-  &:hover { color: var(--accent); border-color: var(--accent); }
+
+  svg { width: 18px; height: 18px; }
+  .icon-sun { display: none; }
+
+  &:hover {
+    color: var(--accent);
+    border-color: var(--border-glow);
+    background: var(--accent-bg);
+  }
+}
+[data-theme="dark"] #theme-toggle {
+  .icon-moon { display: none; }
+  .icon-sun { display: inline; }
 }
 
 // .main
@@ -669,7 +660,7 @@ nav {
   transition: all 0.2s ease;
 
   &:hover {
-    color: lighten($accent, 15%);
+    color: var(--accent);
     transform: translateX(4px);
   }
 }
@@ -713,15 +704,16 @@ article.post, article.page {
 code {
   font-family: $font-mono;
   font-size: 0.88em;
-  background: #f0ece3;
-  color: #8a3b1f;
+  background: var(--code-bg);
+  color: var(--code-fg);
   padding: 2px 6px;
   border-radius: 3px;
-  border: 1px solid rgba(138, 59, 31, 0.14);
+  border: 1px solid var(--code-border);
 }
 
 pre {
-  background: #f0ece3;
+  background: var(--bg-secondary);
+  color: var(--text);
   padding: 16px 20px;
   border: 1px solid var(--border-subtle);
   border-radius: 6px;
@@ -891,7 +883,7 @@ pre {
 
 .home {
   width: calc(100vw - 40px);
-  margin: -18px 0 0 50%;
+  margin: 0 0 0 50%;
   max-width: 1120px;
   transform: translateX(-50%);
 
@@ -1013,48 +1005,6 @@ pre {
   margin: 0 0 20px 0;
 }
 
-// 主推 — 两行式
-.home-featured {
-  border-top: 1px solid var(--border-subtle);
-}
-.home-feature {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--border-subtle);
-  text-decoration: none;
-  color: inherit;
-
-  .hf-text { display: flex; flex-direction: column; gap: 4px; }
-  .hf-name {
-    font-family: $font-heading;
-    font-size: 24px;
-    line-height: 1.35;
-    color: var(--text);
-    transition: color 0.15s;
-  }
-  .hf-desc {
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    max-width: 620px;
-  }
-  .hf-arrow {
-    color: var(--text-muted);
-    font-size: 20px;
-    transition: transform 0.15s, color 0.15s;
-  }
-  &:hover {
-    .hf-name { color: var(--accent); }
-    .hf-arrow { color: var(--accent); transform: translateX(4px); }
-  }
-  @include mobile {
-    .hf-name { font-size: 20px; }
-  }
-}
-
 // 最近更新 — 紧凑列表
 .home-recent {
   list-style: none;
@@ -1103,7 +1053,7 @@ pre {
   span {
     font-family: $font-heading;
     font-size: 13px;
-    color: $text-muted;
+    color: var(--text-muted);
     letter-spacing: 0.1em;
     &::before { content: "— "; opacity: 0.4; }
     &::after  { content: " —"; opacity: 0.4; }
@@ -1178,7 +1128,7 @@ pre {
 }
 
 .writing-page {
-  margin-top: -18px;
+  margin-top: 0;
 }
 
 .writing-intro {
@@ -1216,63 +1166,6 @@ pre {
   }
 }
 
-// 专栏列表
-.writing-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--border-subtle);
-
-  li { border-bottom: 1px solid var(--border-subtle); }
-
-  a {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto auto;
-    grid-template-areas:
-      "name count arrow"
-      "desc desc desc";
-    column-gap: 16px;
-    row-gap: 4px;
-    align-items: baseline;
-    padding: 20px 0;
-    text-decoration: none;
-    color: inherit;
-    &:hover .wl-name { color: var(--accent); }
-  }
-
-  .wl-name {
-    grid-area: name;
-    font-family: $font-heading;
-    font-size: 22px;
-    line-height: 1.35;
-    color: var(--text);
-    transition: color 0.15s;
-  }
-  .wl-count {
-    grid-area: count;
-    font-family: $font-mono;
-    font-size: 12px;
-    color: var(--text-muted);
-    white-space: nowrap;
-  }
-  .wl-arrow {
-    grid-area: arrow;
-    color: var(--text-muted);
-    font-size: 16px;
-  }
-  .wl-desc {
-    grid-area: desc;
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    max-width: 680px;
-  }
-
-  @include mobile {
-    .wl-name { font-size: 19px; }
-  }
-}
-
 // Projects page
 .projects-intro {
   max-width: 640px;
@@ -1284,36 +1177,6 @@ pre {
   line-height: 1.75;
 }
 
-.project-item {
-  padding: 26px 0;
-  border-bottom: 1px solid var(--border-subtle);
-  &:last-child { border-bottom: none; }
-}
-.project-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  h2 {
-    font-size: 24px;
-    line-height: 1.35;
-    margin: 0;
-  }
-}
-.project-code {
-  font-family: $font-heading;
-  font-size: 13px;
-  color: $accent;
-  white-space: nowrap;
-  &:hover { color: var(--accent); }
-}
-.project-desc {
-  font-size: 15px;
-  line-height: 1.75;
-  color: var(--text-secondary);
-  margin: 8px 0 12px 0;
-  max-width: 700px;
-}
 .project-meta {
   display: flex;
   flex-wrap: wrap;
@@ -1323,9 +1186,9 @@ pre {
 .project-tag {
   font-size: 12px;
   font-family: $font-mono;
-  color: $star-blue;
-  background: rgba(106, 180, 208, 0.08);
-  border: 1px solid rgba(106, 180, 208, 0.15);
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 1px solid var(--border-glow);
   border-radius: 4px;
   padding: 3px 10px;
 }
@@ -1339,16 +1202,85 @@ pre {
 // ===== 明亮编辑风 · 精修 =====
 .entry a {
   text-decoration: underline;
-  text-decoration-color: rgba(47, 75, 143, 0.28);
+  text-decoration-color: var(--border-glow);
   text-underline-offset: 3px;
   &:hover { text-decoration-color: var(--accent); }
 }
 .entry { font-size: 18px; line-height: 1.85; }
 .entry p { margin: 1.05em 0; }
-blockquote { background: #f1ede3; }
+blockquote { background: var(--bg-secondary); }
 // 深色代码块内部隔离，避免被浅色 pre/code 覆盖
 .highlight { color: #e9e4da; }
 .highlight pre { background: transparent; }
 .highlight code { background: none; border: none; color: inherit; padding: 0; }
 pre code { color: inherit; }
 hr { border: none; border-top: 1px solid var(--border-subtle); margin: 2.4em 0; }
+
+
+// ===== 卡片 =====
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+
+  @include tablet { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @include mobile { grid-template-columns: 1fr; }
+}
+.card-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  @include mobile { grid-template-columns: 1fr; }
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-glow);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .card-index {
+    font-family: $font-mono;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+  .card-title {
+    font-family: $font-heading;
+    font-size: 20px;
+    line-height: 1.4;
+    color: var(--text);
+  }
+  .card-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+  .card-meta {
+    margin-top: auto;
+    padding-top: 10px;
+    font-family: $font-mono;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+}
+[data-theme="dark"] .card {
+  box-shadow: none;
+  &:hover { box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4); }
+}
+[data-theme="dark"] .footer .svg-icon {
+  filter: invert(1) grayscale(1);
+  opacity: 0.5;
+}
+
+#main { padding-top: 28px; }
