@@ -137,4 +137,4 @@ excerpt: BEVFormer 和 UniAD 这两个知名工作背后有什么故事？机器
 
 ---
 
-*往期访谈：[秦通：站在前人的肩膀上](/talk/2024-12-26-qintong) &nbsp;|&nbsp; [高飞：发普通刊物也不丢人](/talk/2025-01-23-gaofei) &nbsp;|&nbsp; [许华哲：具身智能入门到底学什么](/talk/2025-02-20-xuhuazhe)*
+*往期访谈：[秦通：站在前人的肩膀上](/interviews/2024-12-26-qintong) &nbsp;|&nbsp; [高飞：发普通刊物也不丢人](/interviews/2025-01-23-gaofei) &nbsp;|&nbsp; [许华哲：具身智能入门到底学什么](/interviews/2025-02-20-xuhuazhe)*

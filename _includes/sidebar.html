@@ -33,9 +33,8 @@
     {% else %}<span></span>{% endif %}
   </nav>
 
-  {%- comment -%} collection 标签已英文化，但 URL 前缀保持不变，故分开维护 {%- endcomment -%}
   {% assign col_labels = "silicon,navigation,interviews,productivity,threebody,methodology,notes" | split: "," %}
-  {% assign col_urls   = "silicon,daohang,talk,xinzhi,threebody,fangfalun,notes" | split: "," %}
+  {% assign col_urls   = "silicon,navigation,interviews,productivity,threebody,methodology,notes" | split: "," %}
   {% assign col_names  = "硅基文明发展史,导航的发展史,与优秀的人同行,新质生产力,三体,方法论,技术笔记" | split: "," %}
   {% for c in col_labels %}
     {% assign idx = forloop.index0 %}

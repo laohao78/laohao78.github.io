@@ -38,26 +38,26 @@ sass:
 # 注意：设置 collections_dir 后，_posts 也必须在 collections/ 内。
 collections_dir: collections
 
-# 每个 collection 用 permalink 冻结旧的 URL 前缀，改名不影响已发布地址与外部链接。
+# URL 前缀与 collection 标签保持一致。
 collections:
   silicon:
     output: true
     permalink: /silicon/:path/
   navigation:
     output: true
-    permalink: /daohang/:path/
+    permalink: /navigation/:path/
   interviews:
     output: true
-    permalink: /talk/:path/
+    permalink: /interviews/:path/
   productivity:
     output: true
-    permalink: /xinzhi/:path/
+    permalink: /productivity/:path/
   threebody:
     output: true
     permalink: /threebody/:path/
   methodology:
     output: true
-    permalink: /fangfalun/:path/
+    permalink: /methodology/:path/
   notes:
     output: true
     permalink: /notes/:path/

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 方法论
-permalink: /fangfalun/
+permalink: /methodology/
 ---
 
 <div class="posts posts-no-timeline">

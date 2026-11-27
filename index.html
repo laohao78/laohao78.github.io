@@ -43,10 +43,10 @@ title: 首页
       </div>
 
       <div class="home-hero">
-        <h3><a href="{{ site.baseurl }}/daohang">导航的发展史</a></h3>
+        <h3><a href="{{ site.baseurl }}/navigation">导航的发展史</a></h3>
         <p class="home-hero-desc">从 Sputnik 到 GPS 到卡尔曼滤波。人类如何在这颗星球上找到自己。</p>
         <p class="home-hero-actions">
-          <a href="{{ site.baseurl }}/daohang">进入正文 &rarr;</a>
+          <a href="{{ site.baseurl }}/navigation">进入正文 &rarr;</a>
         </p>
         {% assign dh_posts = site.navigation | sort: "date" | reverse %}
         <ul class="home-hero-list">
@@ -60,7 +60,7 @@ title: 首页
     <!-- 其余五个栏目 -->
     <div class="home-grid">
       <div class="home-card">
-        <h3><a href="{{ site.baseurl }}/xinzhi">新质生产力</a></h3>
+        <h3><a href="{{ site.baseurl }}/productivity">新质生产力</a></h3>
         <p class="home-card-desc">AI 正在重写规则。观察、判断与对策。</p>
         <ul class="home-card-list">
           {% assign articles = site.productivity | sort: "date" | reverse %}
@@ -93,7 +93,7 @@ title: 首页
       </div>
 
       <div class="home-card">
-        <h3><a href="{{ site.baseurl }}/fangfalun">方法论</a></h3>
+        <h3><a href="{{ site.baseurl }}/methodology">方法论</a></h3>
         <p class="home-card-desc">思维方式、工作法则。从第一性原理到执行纪律。</p>
         <ul class="home-card-list">
           {% assign methods = site.methodology | sort: "date" | reverse %}
@@ -104,7 +104,7 @@ title: 首页
       </div>
 
       <div class="home-card">
-        <h3><a href="{{ site.baseurl }}/talk">与优秀的人同行</a></h3>
+        <h3><a href="{{ site.baseurl }}/interviews">与优秀的人同行</a></h3>
         <p class="home-card-desc">对话访谈。那些在机器人、AI、SLAM 领域做出好东西的人。</p>
         <ul class="home-card-list">
           {% assign talks = site.interviews | sort: "date" | reverse %}

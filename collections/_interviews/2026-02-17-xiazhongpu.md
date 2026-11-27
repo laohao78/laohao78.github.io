@@ -112,4 +112,4 @@ excerpt: 从"规则地狱"到端到端突围，他说调参像在修一座 if-el
 
 ---
 
-*往期访谈：[秦通：站在前人的肩膀上](/talk/2024-12-26-qintong) &nbsp;|&nbsp; [高飞：发普通刊物也不丢人](/talk/2025-01-23-gaofei) &nbsp;|&nbsp; [许华哲：具身智能入门到底学什么](/talk/2025-02-20-xuhuazhe) &nbsp;|&nbsp; [李弘扬：机器人还在 L1.5](/talk/2025-03-20-lihongyang) &nbsp;|&nbsp; [杨硕：霸主之争在北上深杭](/talk/2025-04-20-yangshuo) &nbsp;|&nbsp; [石凡：机器人研发的真正卡点](/talk/2025-05-20-shifan)*
+*往期访谈：[秦通：站在前人的肩膀上](/interviews/2024-12-26-qintong) &nbsp;|&nbsp; [高飞：发普通刊物也不丢人](/interviews/2025-01-23-gaofei) &nbsp;|&nbsp; [许华哲：具身智能入门到底学什么](/interviews/2025-02-20-xuhuazhe) &nbsp;|&nbsp; [李弘扬：机器人还在 L1.5](/interviews/2025-03-20-lihongyang) &nbsp;|&nbsp; [杨硕：霸主之争在北上深杭](/interviews/2025-04-20-yangshuo) &nbsp;|&nbsp; [石凡：机器人研发的真正卡点](/interviews/2025-05-20-shifan)*

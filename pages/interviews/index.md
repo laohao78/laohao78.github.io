@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 与优秀的人同行
-permalink: /talk/
+permalink: /interviews/
 ---
 
 <div class="posts posts-no-timeline">

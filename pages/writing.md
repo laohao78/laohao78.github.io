@@ -34,10 +34,10 @@ wide: true
 <div class="writing-hero">
   <div>
     <p class="writing-kicker">Featured Series</p>
-    <h2><a href="{{ site.baseurl }}/daohang">导航的发展史</a></h2>
+    <h2><a href="{{ site.baseurl }}/navigation">导航的发展史</a></h2>
     <p>从 Sputnik 到 GPS 到卡尔曼滤波。在这颗星球上寻找自己的位置。</p>
     <p class="writing-hero-links">
-      <a href="{{ site.baseurl }}/daohang">浏览全部 &rarr;</a>
+      <a href="{{ site.baseurl }}/navigation">浏览全部 &rarr;</a>
     </p>
   </div>
   <ul class="writing-hero-list">
@@ -50,7 +50,7 @@ wide: true
 
 <div class="writing-grid">
   <div class="writing-card">
-    <h3><a href="{{ site.baseurl }}/xinzhi">新质生产力</a></h3>
+    <h3><a href="{{ site.baseurl }}/productivity">新质生产力</a></h3>
     <p class="writing-card-desc">AI 正在重写规则。转型中的观察、判断与对策。</p>
     <ul>
       {% assign articles = site.productivity | sort: "date" | reverse %}
@@ -83,7 +83,7 @@ wide: true
   </div>
 
   <div class="writing-card">
-    <h3><a href="{{ site.baseurl }}/fangfalun">方法论</a></h3>
+    <h3><a href="{{ site.baseurl }}/methodology">方法论</a></h3>
     <p class="writing-card-desc">思维方式、工作法则。从第一性原理到执行纪律。</p>
     <ul>
       {% assign methods = site.methodology | sort: "date" | reverse %}
@@ -94,7 +94,7 @@ wide: true
   </div>
 
   <div class="writing-card">
-    <h3><a href="{{ site.baseurl }}/talk">与优秀的人同行</a></h3>
+    <h3><a href="{{ site.baseurl }}/interviews">与优秀的人同行</a></h3>
     <p class="writing-card-desc">对话访谈。那些在机器人、AI、SLAM 领域做出好东西的人。</p>
     <ul>
       {% assign talks = site.interviews | sort: "date" | reverse %}

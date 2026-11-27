@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 导航的发展史
-permalink: /daohang/
+permalink: /navigation/
 ---
 
 <div class="posts posts-no-timeline">
