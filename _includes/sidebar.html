@@ -1,4 +1,5 @@
-{% if page.collection %}
+{% assign nav_col = page.nav_collection | default: page.collection %}
+{% if nav_col %}
 <button class="article-nav-btn" id="article-nav-btn" title="目录">目录</button>
 <div class="article-nav-overlay" id="article-nav-overlay"></div>
 
@@ -8,20 +9,20 @@
   {% assign cur_name = "" %}
   {% for c in col_labels %}
     {% assign idx = forloop.index0 %}
-    {% if c == page.collection %}{% assign cur_name = col_names[idx] %}{% endif %}
+    {% if c == nav_col %}{% assign cur_name = col_names[idx] %}{% endif %}
   {% endfor %}
 
   <div class="nav-col-title">
-    <a href="{{ site.baseurl }}/{{ page.collection }}">{{ cur_name }}</a>
+    <a href="{{ site.baseurl }}/{{ nav_col }}">{{ cur_name }}</a>
   </div>
 
-  {% if page.collection == "silicon" or page.collection == "navigation" %}
-    {% assign cur = site[page.collection] | sort: "date" %}
+  {% if nav_col == "silicon" or nav_col == "navigation" %}
+    {% assign cur = site[nav_col] | sort: "date" %}
   {% else %}
-    {% assign cur = site[page.collection] | sort: "date" | reverse %}
+    {% assign cur = site[nav_col] | sort: "date" | reverse %}
   {% endif %}
 
-  {% if page.collection == "silicon" %}
+  {% if nav_col == "silicon" %}
     {% assign groups = cur | group_by: "era" %}
     {% for g in groups %}
       <div class="nav-era">
@@ -46,7 +47,7 @@
     <ul>
       {% for c in col_labels %}
         {% assign idx = forloop.index0 %}
-        <li{% if c == page.collection %} class="cur"{% endif %}><a href="{{ site.baseurl }}/{{ c }}">{{ col_names[idx] }}</a></li>
+        <li{% if c == nav_col %} class="cur"{% endif %}><a href="{{ site.baseurl }}/{{ c }}">{{ col_names[idx] }}</a></li>
       {% endfor %}
     </ul>
   </details>

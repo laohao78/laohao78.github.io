@@ -2,6 +2,7 @@
 layout: page
 title: 三体
 permalink: /threebody/
+nav_collection: threebody
 ---
 
 <div class="posts posts-no-timeline">

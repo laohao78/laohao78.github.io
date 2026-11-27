@@ -2,6 +2,7 @@
 layout: page
 title: 与优秀的人同行
 permalink: /interviews/
+nav_collection: interviews
 ---
 
 <div class="posts posts-no-timeline">

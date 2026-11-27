@@ -2,6 +2,7 @@
 layout: page
 title: 新质生产力观察
 permalink: /productivity/
+nav_collection: productivity
 ---
 
 <div class="posts posts-no-timeline">

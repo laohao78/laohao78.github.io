@@ -2,6 +2,7 @@
 layout: page
 title: 硅基文明发展史
 permalink: /silicon/
+nav_collection: silicon
 ---
 
 <nav class="sub-nav">

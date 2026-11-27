@@ -2,6 +2,7 @@
 layout: page
 title: 导航的发展史
 permalink: /navigation/
+nav_collection: navigation
 ---
 
 <div class="posts posts-no-timeline">

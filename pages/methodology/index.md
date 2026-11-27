@@ -2,6 +2,7 @@
 layout: page
 title: 方法论
 permalink: /methodology/
+nav_collection: methodology
 ---
 
 <div class="posts posts-no-timeline">

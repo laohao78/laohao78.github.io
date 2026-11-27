@@ -2,6 +2,7 @@
 layout: page
 title: 技术笔记
 permalink: /notes/
+nav_collection: notes
 ---
 
 <div class="posts posts-no-timeline">
