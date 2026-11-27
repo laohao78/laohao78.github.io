@@ -1,0 +1,22 @@
+# 栏目元数据：顺序即站点展示顺序
+silicon:
+  name: 硅基文明发展史
+  desc: 从图灵到现在，硅基智能的编年史
+navigation:
+  name: 导航的发展史
+  desc: 从 Sputnik 到 GPS，人类如何找到自己
+interviews:
+  name: 与优秀的人同行
+  desc: 对话机器人、AI、SLAM 领域的从业者
+productivity:
+  name: 新质生产力
+  desc: AI 时代的产业变革与技术趋势
+threebody:
+  name: 三体
+  desc: 人物、概念与那些睡不着觉的问题
+methodology:
+  name: 方法论
+  desc: 从五步工作法到苏格拉底式学习
+notes:
+  name: 技术笔记
+  desc: ROS、SLAM、仿真实战中的踩坑与解法
